@@ -11,6 +11,7 @@
     <modules>
         <module>eureka</module>
         <module>common</module>
+        <module>database</module>
     </modules>
 
     <parent>

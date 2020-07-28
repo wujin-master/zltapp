@@ -7,18 +7,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="common" />
-        <module name="community" />
+        <module name="dbservice" />
+        <module name="dbinterface" />
         <module name="eureka" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="community" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="common" options="-parameters" />
-      <module name="community" options="-parameters" />
+      <module name="database" options="-parameters" />
+      <module name="dbinterface" options="-parameters" />
+      <module name="dbservice" options="-parameters" />
       <module name="eureka" options="-parameters" />
     </option>
   </component>
