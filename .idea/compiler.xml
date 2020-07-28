@@ -6,14 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="eureka" />
         <module name="common" />
+        <module name="dbservice" />
+        <module name="dbinterface" />
+        <module name="eureka" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="common" options="-parameters" />
+      <module name="database" options="-parameters" />
+      <module name="dbinterface" options="-parameters" />
+      <module name="dbservice" options="-parameters" />
       <module name="eureka" options="-parameters" />
     </option>
   </component>
