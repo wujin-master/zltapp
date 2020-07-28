@@ -9,9 +9,9 @@ spring:
   application:
     name: database
   datasource:
-    url: jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8
-    username: root
-    password: 123456
+    url: jdbc:mysql://139.9.34.248:2276/EduApp?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8-mb4
+    username: EduApp
+    password: 7DfnBL6pyEGDMi2i
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
