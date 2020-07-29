@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface EduTeacherMapper {
     List<EduTeacher> findAllTeacher();
-    EduTeacher findByTeacherId(int teacherId);
+    EduTeacher findByTeacherId(String teacherId);
     EduTeacher findByTeacherMobile(String teacherMobile);
 
 }

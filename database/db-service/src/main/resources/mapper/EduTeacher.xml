@@ -9,7 +9,7 @@
         select * from edu_teacher
     </select>
 
-    <select id="findByTeacherId" resultType="com.zlt.pojo.EduTeacher" parameterType="java.lang.Integer">
+    <select id="findByTeacherId" resultType="com.zlt.pojo.EduTeacher" parameterType="java.lang.String">
         select * from edu_teacher where teacherId=#{teacherId}
     </select>
 

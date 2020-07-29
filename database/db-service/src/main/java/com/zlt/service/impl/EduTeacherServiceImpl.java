@@ -19,7 +19,7 @@ public class EduTeacherServiceImpl implements EduTeacherService {
         return eduTeacherMapper.findAllTeacher();
     }
     @Override //根据id查教师
-    public EduTeacher findById(int teacherId){
+    public EduTeacher findById(String teacherId){
         return eduTeacherMapper.findByTeacherId(teacherId);
     }
     @Override//根据手机号查id

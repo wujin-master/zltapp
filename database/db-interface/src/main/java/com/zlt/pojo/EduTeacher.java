@@ -3,7 +3,7 @@ package com.zlt.pojo;
 import java.util.Date;
 
 public class EduTeacher {
-    private Integer teacherId; //教师Id
+    private String teacherId; //教师Id
     private String teacherPortrait; //教师头像
     private String teacherNickName; //教师昵称
     private String teacherMobile;   //教师手机号
@@ -19,7 +19,7 @@ public class EduTeacher {
     public EduTeacher() {
     }
 
-    public EduTeacher(Integer teacherId, String teacherPortrait, String teacherNickName, String teacherMobile, String teacherEmail, String teacherPassword, String teacherTno, String teacherSchool, Date createTime, Date upDateTimel, String reverse1, String reverse2) {
+    public EduTeacher(String teacherId, String teacherPortrait, String teacherNickName, String teacherMobile, String teacherEmail, String teacherPassword, String teacherTno, String teacherSchool, Date createTime, Date upDateTimel, String reverse1, String reverse2) {
         this.teacherId = teacherId;
         this.teacherPortrait = teacherPortrait;
         this.teacherNickName = teacherNickName;
@@ -34,11 +34,11 @@ public class EduTeacher {
         this.reverse2 = reverse2;
     }
 
-    public Integer getTeacherId() {
+    public String getTeacherId() {
         return teacherId;
     }
 
-    public void setTeacherId(Integer teacherId) {
+    public void setTeacherId(String teacherId) {
         this.teacherId = teacherId;
     }
 
