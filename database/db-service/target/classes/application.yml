@@ -9,24 +9,11 @@ spring:
   application:
     name: database
   datasource:
-    url: jdbc:mysql://139.9.34.248:2276/EduApp?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8-mb4
+    url: jdbc:mysql://139.9.34.248:2276/EduApp?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: EduApp
     password: 7DfnBL6pyEGDMi2i
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-    druid:
-      #初始化大小
-      initialSize: 5
-      #最小值
-      minIdle: 5
-      #最大值
-      maxActive: 20
-      #最大等待时间，配置获取连接等待超时，时间单位都是毫秒ms
-      maxWait: 60000
-      #配置间隔多久才进行一次检测，检测需要关闭的空闲连接
-      timeBetweenEvictionRunsMillis: 60000
-      #配置一个连接在池中最小生存的时间
-      minEvictableIdleTimeMillis: 30000
 
 #mybatis整合
 mybatis:

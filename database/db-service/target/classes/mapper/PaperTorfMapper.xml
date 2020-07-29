@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zlt.mapper.PaperTorfMapper">
+    <select id="findAllPaperTorf" resultType="com.zlt.pojo.EduPapertorf">
+            select * from edu_papermulti
+        </select>
+    <select id="findPaperTorfById" resultType="com.zlt.pojo.EduPapertorf" parameterType="java.lang.String">
+            select * from edu_papermulti where id=#{id}
+        </select>
+    <insert id="addPaperTorf" parameterType="com.zlt.pojo.EduPapertorf" >
+            INSERT INTO edu_papermulti (id, paperId, torfId, createTime, updateTime, reserv1, reserv2) VALUES (#{id}, #{paperId}, #{torfId}, #{createTime}, #{updateTime}, #{reserve1}, #{reserve2})
+        </insert>
+    <delete id="deletePaperTorf" parameterType="java.lang.String">
+            delete from edu_papermulti where id=#{id}
+        </delete>
+    <update id="updatePaperTorf" parameterType="com.zlt.pojo.EduPapertorf">
+            UPDATE updateChapter SET paperId=#{paperId}, torfId=#{torfId}, createTime=#{createTime}, updateTime=#{createTime}, reverse1=#{reverse1}, reverse2=#{reverse2} where id=#{id}
+        </update>
+</mapper>
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zlt.mapper.ExamMapper">
+    <select id="findAllExam" resultType="com.zlt.pojo.EduExam">
+            select * from edu_exam
+        </select>
+    <select id="findExamByExamId" resultType="com.zlt.pojo.EduExam" parameterType="java.lang.String">
+            select * from edu_exam where examId=#{examId}
+        </select>
+    <insert id="addExam" parameterType="com.zlt.pojo.EduExam" >
+            INSERT INTO edu_exam ( examId,  courseId,  paperId,  examname,  examStartTime,  examEndTime,  totalTime,  examExplain,  joinYear,  grade,  term,  major,  createTime,  updateTime,  reserve1,  reserve2) VALUES (#{examId}, #{courseId}, #{paperId}, #{examname}, #{examStartTime}, #{examEndTime}, #{totalTime}, #{examExplain}, #{joinYear}, #{grade} , #{term}, #{major}, #{createTime}, #{updateTime}, #{reserve1}, #{reserve2})
+        </insert>
+    <delete id="deleteExam" parameterType="java.lang.String">
+            delete from edu_exam where examId=#{examId}
+        </delete>
+    <update id="updateExam" parameterType="com.zlt.pojo.EduExam">
+            UPDATE updateChapter SET examId=#{examId}, courseId=#{courseId}, paperId=#{paperId}, examname=#{examname}, examStartTime=#{examStartTime}, examEndTime=#{examEndTime},totalTime=#{totalTime}, examExplain=#{examExplain}, joinYear=#{joinYear}, grade=#{grade} ,term=#{term}, major=#{major}, createTime=#{createTime}, updateTime=#{updateTime} , reserve1=#{reserve1}, reserve2=#{reserve2} where examId=#{examId}
+      </update>                <!--          examId,  courseId,  paperId,                                   examname,  examStartTime,                           examEndTime,          totalTime,                 examExplain,               joinYear,               grade,  term,                     major,  createTime,                updateTime,                        reserve1,  reserve2-->
+</mapper>
+
+
+

@@ -3,31 +3,31 @@ package com.zlt.pojo;
 import java.util.Date;
 
 public class EduExam {
-    private String examId; //考试Id
-    private String courseId; //所属课程
-    private String papaerId;   //试卷id
-    private String examName; //考试名称
-    private Date examStartTime;  //开始时间
-    private Date examEndTime;   //更新时间
-    private int totalTime;      //持续分钟
-    private String examExplain;    //考试说明
-    private String joinYear; //届数
-    private String grade;  //年级
-    private String term;   //学期
-    private String major;   //专业
-    private Date createTime;  //创建时间
-    private Date upDateTimel;   //更新时间
-    private String reverse1;    //保留字段1
-    private String reverse2;    //保留字段2
+    private String examId;
+    private String courseId;
+    private String paperId;
+    private String examname;
+    private Date examStartTime;
+    private Date examEndTime;
+    private int totalTime;
+    private String examExplain;
+    private String joinYear;
+    private String grade;
+    private String term;
+    private String major;
+    private Date createTime;
+    private Date updateTime;
+    private String reserve1;
+    private String reserve2;
 
     public EduExam() {
     }
 
-    public EduExam(String examId, String courseId, String papaerId, String examName, Date examStartTime, Date examEndTime, int totalTime, String examExplain, String joinYear, String grade, String term, String major, Date createTime, Date upDateTimel, String reverse1, String reverse2) {
+    public EduExam(String examId, String courseId, String paperId, String examname, Date examStartTime, Date examEndTime, int totalTime, String examExplain, String joinYear, String grade, String term, String major, Date createTime, Date updateTime, String reserve1, String reserve2) {
         this.examId = examId;
         this.courseId = courseId;
-        this.papaerId = papaerId;
-        this.examName = examName;
+        this.paperId = paperId;
+        this.examname = examname;
         this.examStartTime = examStartTime;
         this.examEndTime = examEndTime;
         this.totalTime = totalTime;
@@ -37,9 +37,9 @@ public class EduExam {
         this.term = term;
         this.major = major;
         this.createTime = createTime;
-        this.upDateTimel = upDateTimel;
-        this.reverse1 = reverse1;
-        this.reverse2 = reverse2;
+        this.updateTime = updateTime;
+        this.reserve1 = reserve1;
+        this.reserve2 = reserve2;
     }
 
     public String getExamId() {
@@ -58,20 +58,20 @@ public class EduExam {
         this.courseId = courseId;
     }
 
-    public String getPapaerId() {
-        return papaerId;
+    public String getPaperId() {
+        return paperId;
     }
 
-    public void setPapaerId(String papaerId) {
-        this.papaerId = papaerId;
+    public void setPaperId(String paperId) {
+        this.paperId = paperId;
     }
 
-    public String getExamName() {
-        return examName;
+    public String getExamname() {
+        return examname;
     }
 
-    public void setExamName(String examName) {
-        this.examName = examName;
+    public void setExamname(String examname) {
+        this.examname = examname;
     }
 
     public Date getExamStartTime() {
@@ -146,28 +146,28 @@ public class EduExam {
         this.createTime = createTime;
     }
 
-    public Date getUpDateTimel() {
-        return upDateTimel;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setUpDateTimel(Date upDateTimel) {
-        this.upDateTimel = upDateTimel;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
-    public String getReverse1() {
-        return reverse1;
+    public String getReserve1() {
+        return reserve1;
     }
 
-    public void setReverse1(String reverse1) {
-        this.reverse1 = reverse1;
+    public void setReserve1(String reserve1) {
+        this.reserve1 = reserve1;
     }
 
-    public String getReverse2() {
-        return reverse2;
+    public String getReserve2() {
+        return reserve2;
     }
 
-    public void setReverse2(String reverse2) {
-        this.reverse2 = reverse2;
+    public void setReserve2(String reserve2) {
+        this.reserve2 = reserve2;
     }
 
     @Override
@@ -175,8 +175,8 @@ public class EduExam {
         return "EduExam{" +
                 "examId='" + examId + '\'' +
                 ", courseId='" + courseId + '\'' +
-                ", papaerId='" + papaerId + '\'' +
-                ", examName='" + examName + '\'' +
+                ", paperId='" + paperId + '\'' +
+                ", examname='" + examname + '\'' +
                 ", examStartTime=" + examStartTime +
                 ", examEndTime=" + examEndTime +
                 ", totalTime=" + totalTime +
@@ -186,9 +186,9 @@ public class EduExam {
                 ", term='" + term + '\'' +
                 ", major='" + major + '\'' +
                 ", createTime=" + createTime +
-                ", upDateTimel=" + upDateTimel +
-                ", reverse1='" + reverse1 + '\'' +
-                ", reverse2='" + reverse2 + '\'' +
+                ", updateTime=" + updateTime +
+                ", reserve1='" + reserve1 + '\'' +
+                ", reserve2='" + reserve2 + '\'' +
                 '}';
     }
 }
