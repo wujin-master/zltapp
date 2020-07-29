@@ -26,6 +26,7 @@ public class PaperMultiServiceImplTest {
 
     @Test
     public void all() {
+        //无错
         EduPapermulti eduPapermulti = new EduPapermulti();
         eduPapermulti.setId(UUIDUtil.getUUID());
         eduPapermulti.setPaperId("01");

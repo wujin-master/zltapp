@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--映射文件与接口的对应关系-->
+<mapper namespace="com.zlt.mapper.EduTaskSingleMapper">
+    <select id="findAll" resultType="com.zlt.pojo.EduTaskSingle">
+        select * from edu_tasksingle
+    </select>
+
+    <select id="findEduTaskSingleById" parameterType="java.lang.String" resultType="com.zlt.pojo.EduTaskSingle">
+        select * from edu_tasksingle where id = #{id}
+    </select>
+
+    <insert id="addEduTaskSingle" parameterType="com.zlt.pojo.EduTaskSingle">
+        insert into edu_tasksingle(id,taskId,singleId,reverse1,reverse2)
+        values (#{id},#{taskId},#{singleId},#{reverse1},#{reverse2})
+    </insert>
+
+    <delete id="deleteEduTaskSingleById" parameterType="java.lang.String">
+        delete from edu_tasksingle where id = #{id}
+    </delete>
+
+    <update id="updateEduTaskSingle" parameterType="com.zlt.pojo.EduTaskSingle">
+        update edu_tasksingle
+        set taskId=#{taskId},singleId=#{singleId},reverse1=#{reverse1},reverse2=#{reverse2}
+        where id = #{id}
+    </update>
+
+
+</mapper>

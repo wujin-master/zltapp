@@ -17,6 +17,6 @@
             delete from edu_chapter where chapterId =#{chapterId}
         </delete>
     <update id="updateChapter" parameterType="com.zlt.pojo.EduChapter">
-            UPDATE updateChapter SET chapterName=#{chapterName}, courseId=#{courseId}, createTime=#{createTime}, updateTime=#{updateTime}, reverse1=#{reverse1}, reverse2=#{reverse2} where chapterId =#{chapterId}
+            UPDATE edu_chapter SET chapterName=#{chapterName}, courseId=#{courseId}, createTime=#{createTime}, updateTime=#{updateTime}, reverse1=#{reverse1}, reverse2=#{reverse2} where chapterId =#{chapterId}
         </update>
 </mapper>

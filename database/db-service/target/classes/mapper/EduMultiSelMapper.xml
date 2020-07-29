@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--映射文件与接口的对应关系-->
+<mapper namespace="com.zlt.mapper.EduMultiSelMapper">
+    <select id="selectAllMulti" resultType="com.zlt.pojo.EduMultiSel">
+        select * from edu_multisel
+    </select>
+
+    <select id="selectMultiById" parameterType="java.lang.String" resultType="com.zlt.pojo.EduMultiSel">
+        select * from edu_multisel
+        where id = #{id}
+    </select>
+
+    <insert id="insertOne" parameterType="com.zlt.pojo.EduMultiSel">
+        insert into edu_multisel(id,question,choiceA,choiceB,choiceC,choiceD,answer,score)
+        values (#{id},#{question},#{choiceA},#{choiceB},#{choiceC},#{choiceD},#{answer},#{score})
+        where id=#{id}
+    </insert>
+
+    <delete id="deleteMultyiById" parameterType="java.lang.String">
+        delete from edu_multisel
+        where id = #{id}
+    </delete>
+
+    <update id="updateMulti" parameterType="com.zlt.pojo.EduMultiSel">
+        update edu_multisel
+        set question=#{question},choiceA=#{choiceA},choiceB=#{choiceB},
+        choiceC=#{choiceC},choiceD=#{choiceD},answer=#{answer},score=#{score}
+        where id=#{id}
+    </update>
+</mapper>
