@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zlt.mapper.ChapterDetailMapper">
+        <select id="findAllChapterDetail" resultType="com.zlt.pojo.EduChapterdetail">
+            select * from edu_chapterdetail
+        </select>
+        <select id="findChapterDetailByChaptDeId" resultType="com.zlt.pojo.EduChapterdetail" parameterType="java.lang.String">
+            select * from edu_chapterdetail where chaptDeId =#{chaptDeId}
+        </select>
+        <insert id="addChapterDetail" parameterType="com.zlt.pojo.EduChapterdetail" >
+            INSERT INTO edu_chapterdetail (chaptDeId, chaptDeName, chaptDeUrl, chapterId, reverse1, reverse2) VALUES (#{chaptDeId}, #{chaptDeName}, #{chaptDeUrl}, #{chapterId}, #{reverse1}, #{reverse2})
+        </insert>
+        <delete id="deleteChapterDetail" parameterType="java.lang.String">
+            delete from edu_chapterdetail where chaptDeId =#{chaptDeId}
+        </delete>
+        <update id="updateChapterDetail" parameterType="com.zlt.pojo.EduChapterdetail">
+            UPDATE updateChapterDetail SET chaptDeName=#{chaptDeName}, chaptDeUrl=#{chaptDeUrl}, chapterId=#{chapterId}, reverse1=#{reverse1}, reverse2=#{reverse2} WHERE chaptDeId =#{chaptDeId}
+        </update>
+</mapper>
