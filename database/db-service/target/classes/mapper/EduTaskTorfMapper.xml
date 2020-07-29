@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--映射文件与接口的对应关系-->
+<mapper namespace="com.zlt.mapper.EduTaskTorfMapper">
+
+    <select id="findByTaskId" resultType="com.zlt.pojo.EduTaskTorf" parameterType="java.lang.String">
+        select * from edu_tasktorf where taskId = #{taskId}
+    </select>
+
+    <select id="findByTorfId" resultType="com.zlt.pojo.EduTaskTorf" parameterType="java.lang.String">
+        select *
+        from edu_tasktorf
+        where torfId = #{torfId}
+    </select>
+
+    <insert id="addTaskTorf" parameterType="com.zlt.pojo.EduTaskTorf">
+        insert into edu_tasktorf
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="taskId != null">
+                taskId,
+            </if>
+            <if test="torfId != null">
+                torfId,
+            </if>
+            <if test="reverse1 != null">
+                reverse1,
+            </if>
+            <if test="reverse2 != null">
+                reverse2,
+            </if>
+        </trim>
+        <trim prefix="value (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="taskId != null">
+                #{taskId},
+            </if>
+            <if test="torfId != null">
+                #{torfId},
+            </if>
+            <if test="reverse1 != null">
+                #{reverse1},
+            </if>
+            <if test="reverse2 != null">
+                #{reverse2},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateTaskTorf" parameterType="com.zlt.pojo.EduTaskTorf">
+        update edu_tasktorf
+        <set>
+            <trim>
+                <if test="taskId != null">
+                    taskId = #{taskId},
+                </if>
+                <if test="torfId != null">
+                    torfId = #{torfId},
+                </if>
+                <if test="reverse1 != null">
+                    reverse1 = #{reverse1},
+                </if>
+                <if test="reverse2 != null">
+                    reverse2 = #{reverse2},
+                </if>
+            </trim>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteTaskTorf" parameterType="java.lang.String">
+        delete from edu_tasktorf
+        where id = #{id}
+    </delete>
+
+</mapper>

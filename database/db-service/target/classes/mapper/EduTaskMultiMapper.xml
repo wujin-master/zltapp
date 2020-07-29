@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--映射文件与接口的对应关系-->
+<mapper namespace="com.zlt.mapper.EduTaskMultiMapper">
+
+    <select id="findByTaskId" resultType="com.zlt.pojo.EduTaskMulti" parameterType="java.lang.String">
+        select * from edu_taskmulti where taskId = #{taskId}
+    </select>
+
+    <select id="findByMultiId" resultType="com.zlt.pojo.EduTaskMulti" parameterType="java.lang.String">
+        select *
+        from edu_taskmulti
+        where multiId = #{multiId}
+    </select>
+
+    <insert id="addTaskMulti" parameterType="com.zlt.pojo.EduTaskMulti">
+        insert into edu_taskmulti
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="taskId != null">
+                taskId,
+            </if>
+            <if test="multiId != null">
+                multiId,
+            </if>
+            <if test="reverse1 != null">
+                reverse1,
+            </if>
+            <if test="reverse2 != null">
+                reverse2,
+            </if>
+        </trim>
+        <trim prefix="value (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="taskId != null">
+                #{taskId},
+            </if>
+            <if test="multiId != null">
+                #{multiId},
+            </if>
+            <if test="reverse1 != null">
+                #{reverse1},
+            </if>
+            <if test="reverse2 != null">
+                #{reverse2},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateTaskMulti" parameterType="com.zlt.pojo.EduTaskMulti">
+        update edu_taskmulti
+        <set>
+            <trim>
+                <if test="taskId != null">
+                    taskId = #{taskId},
+                </if>
+                <if test="multiId != null">
+                    multiId = #{multiId},
+                </if>
+                <if test="reverse1 != null">
+                    reverse1 = #{reverse1},
+                </if>
+                <if test="reverse2 != null">
+                    reverse2 = #{reverse2},
+                </if>
+            </trim>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteTaskMulti" parameterType="java.lang.String">
+        delete from edu_taskmulti
+        where id = #{id}
+    </delete>
+
+</mapper>

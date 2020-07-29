@@ -8,5 +8,5 @@ public interface EduTaskService {
     int addTask(EduTask eduTask);
     int updateTask(EduTask eduTask);
     int deleteTask(String id);
-    List<EduTask> findById(String id);
+    EduTask findById(String id);
 }

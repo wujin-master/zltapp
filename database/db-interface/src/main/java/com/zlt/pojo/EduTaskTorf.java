@@ -1,5 +1,8 @@
 package com.zlt.pojo;
 
+import lombok.Data;
+
+@Data
 public class EduTaskTorf {
     private String id;
     private String taskId;
