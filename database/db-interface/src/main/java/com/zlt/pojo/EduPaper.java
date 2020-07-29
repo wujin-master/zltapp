@@ -1,129 +1,107 @@
 package com.zlt.pojo;
 
-import java.util.Date;
 
 public class EduPaper {
-    private String paperId; //试卷Id
-    private String papaername; //试卷名
-    private String questionNumber;   //题目数量
-    private String courseName; //课程名
-    private int paperState; //试卷状态
-    private String papaerGrade;//分数
 
-    private Date createTime;  //创建时间
-    private Date upDateTimel;   //更新时间
-    private String reverse1;    //保留字段1
-    private String reverse2;    //保留字段2
+  private String paperId;
+  private String paperName;
+  private String questionNumber;
+  private String courseName;
+  private long paperState;
+  private String paperGrade;
+  private java.sql.Timestamp createTime;
+  private java.sql.Timestamp updateTime;
+  private String reserve1;
+  private String reserve2;
 
-    public EduPaper() {
-    }
 
-    public EduPaper(String paperId, String papaername, String questionNumber, String courseName, int paperState, String papaerGrade, Date createTime, Date upDateTimel, String reverse1, String reverse2) {
-        this.paperId = paperId;
-        this.papaername = papaername;
-        this.questionNumber = questionNumber;
-        this.courseName = courseName;
-        this.paperState = paperState;
-        this.papaerGrade = papaerGrade;
-        this.createTime = createTime;
-        this.upDateTimel = upDateTimel;
-        this.reverse1 = reverse1;
-        this.reverse2 = reverse2;
-    }
+  public String getPaperId() {
+    return paperId;
+  }
 
-    public String getPaperId() {
-        return paperId;
-    }
+  public void setPaperId(String paperId) {
+    this.paperId = paperId;
+  }
 
-    public void setPaperId(String paperId) {
-        this.paperId = paperId;
-    }
 
-    public String getPapaername() {
-        return papaername;
-    }
+  public String getPaperName() {
+    return paperName;
+  }
 
-    public void setPapaername(String papaername) {
-        this.papaername = papaername;
-    }
+  public void setPaperName(String paperName) {
+    this.paperName = paperName;
+  }
 
-    public String getQuestionNumber() {
-        return questionNumber;
-    }
 
-    public void setQuestionNumber(String questionNumber) {
-        this.questionNumber = questionNumber;
-    }
+  public String getQuestionNumber() {
+    return questionNumber;
+  }
 
-    public String getCourseName() {
-        return courseName;
-    }
+  public void setQuestionNumber(String questionNumber) {
+    this.questionNumber = questionNumber;
+  }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
 
-    public int getPaperState() {
-        return paperState;
-    }
+  public String getCourseName() {
+    return courseName;
+  }
 
-    public void setPaperState(int paperState) {
-        this.paperState = paperState;
-    }
+  public void setCourseName(String courseName) {
+    this.courseName = courseName;
+  }
 
-    public String getPapaerGrade() {
-        return papaerGrade;
-    }
 
-    public void setPapaerGrade(String papaerGrade) {
-        this.papaerGrade = papaerGrade;
-    }
+  public long getPaperState() {
+    return paperState;
+  }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
+  public void setPaperState(long paperState) {
+    this.paperState = paperState;
+  }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
 
-    public Date getUpDateTimel() {
-        return upDateTimel;
-    }
+  public String getPaperGrade() {
+    return paperGrade;
+  }
 
-    public void setUpDateTimel(Date upDateTimel) {
-        this.upDateTimel = upDateTimel;
-    }
+  public void setPaperGrade(String paperGrade) {
+    this.paperGrade = paperGrade;
+  }
 
-    public String getReverse1() {
-        return reverse1;
-    }
 
-    public void setReverse1(String reverse1) {
-        this.reverse1 = reverse1;
-    }
+  public java.sql.Timestamp getCreateTime() {
+    return createTime;
+  }
 
-    public String getReverse2() {
-        return reverse2;
-    }
+  public void setCreateTime(java.sql.Timestamp createTime) {
+    this.createTime = createTime;
+  }
 
-    public void setReverse2(String reverse2) {
-        this.reverse2 = reverse2;
-    }
 
-    @Override
-    public String toString() {
-        return "EduPaper{" +
-                "paperId='" + paperId + '\'' +
-                ", papaername='" + papaername + '\'' +
-                ", questionNumber='" + questionNumber + '\'' +
-                ", courseName='" + courseName + '\'' +
-                ", paperState=" + paperState +
-                ", papaerGrade='" + papaerGrade + '\'' +
-                ", createTime=" + createTime +
-                ", upDateTimel=" + upDateTimel +
-                ", reverse1='" + reverse1 + '\'' +
-                ", reverse2='" + reverse2 + '\'' +
-                '}';
-    }
+  public java.sql.Timestamp getUpdateTime() {
+    return updateTime;
+  }
+
+  public void setUpdateTime(java.sql.Timestamp updateTime) {
+    this.updateTime = updateTime;
+  }
+
+
+  public String getReserve1() {
+    return reserve1;
+  }
+
+  public void setReserve1(String reserve1) {
+    this.reserve1 = reserve1;
+  }
+
+
+  public String getReserve2() {
+    return reserve2;
+  }
+
+  public void setReserve2(String reserve2) {
+    this.reserve2 = reserve2;
+  }
+
 }

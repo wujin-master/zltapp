@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="com.zlt.mapper.ClassCourseMapper">
+    <select id="findAllClassCourse" resultType="com.zlt.pojo.EduClasscourse">
+            select * from edu_classcourse
+        </select>
+    <select id="findClassCourseById" resultType="com.zlt.pojo.EduClasscourse" parameterType="java.lang.String">
+            select * from edu_classcourse where id =#{id}
+        </select>
+    <insert id="addClassCourse" parameterType="com.zlt.pojo.EduClasscourse" >
+            INSERT INTO edu_classcourse (id, classId, courseId, reverse1, reverse2) VALUES (#{id}, #{classId}, #{courseId}, #{reverse1}, #{reverse2})
+        </insert>
+    <delete id="deleteClassCourse" parameterType="java.lang.String">
+            delete from edu_chapter where id =#{id}
+        </delete>
+    <update id="updateClassCourse" parameterType="com.zlt.pojo.EduClasscourse">
+            UPDATE updateChapter SET classId=#{classId}, courseId=#{courseId}, reverse1=#{reverse1}, reverse2=#{reverse2} where id =#{id}
+        </update>
+</mapper>

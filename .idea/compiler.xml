@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="common" />
         <module name="dbservice" />
+        <module name="common" />
         <module name="dbinterface" />
         <module name="eureka" />
+        <module name="db-service" />
+        <module name="db-interface" />
       </profile>
     </annotationProcessing>
   </component>
@@ -17,6 +19,8 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="common" options="-parameters" />
       <module name="database" options="-parameters" />
+      <module name="db-interface" options="-parameters" />
+      <module name="db-service" options="-parameters" />
       <module name="dbinterface" options="-parameters" />
       <module name="dbservice" options="-parameters" />
       <module name="eureka" options="-parameters" />
