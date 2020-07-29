@@ -5,17 +5,13 @@
 <!--映射文件与接口的对应关系-->
 <mapper namespace="com.zlt.mapper.EduUserMapper">
 
-    <select id="findByName" resultType="com.zlt.pojo.EduUser">
-        select * from edu_user where userNickname = #{userNickname}
+    <select id="findById" resultType="com.zlt.pojo.EduUser">
+        select * from edu_user where userId = #{userId}
     </select>
 
-    <select id="findAll" resultType="com.zlt.pojo.EduUser">
+    <select id="queryUsers" resultType="com.zlt.pojo.EduUser">
         select * from edu_user
     </select>
-
-<!--    <select id="getInfo" resultType="com.zlt.pojo.User">-->
-<!--        select userPortrait,userNickname,userMobile,userEmail,userSchool,userSno,createTime,updateTime from user where userNickname = #{userNickname}-->
-<!--    </select>-->
 
     <select id="findByEmail" resultType="com.zlt.pojo.EduUser" parameterType="java.lang.String">
         select *
@@ -96,9 +92,47 @@
             </if>
         </trim>
     </insert>
-    <!--    <select id="findById" resultType="com.zlt.person.Person" parameterType="java.lang.Integer">-->
-    <!--        select * from person where id=#{id}-->
-    <!--    </select>-->
+
+    <update id="updateUser" parameterType="com.zlt.pojo.EduUser">
+        update edu_user
+        <set>
+            <trim>
+                <if test="userPortrait != null">
+                    userPortrait = #{userPortrait},
+                </if>
+                <if test="userNickname != null">
+                    userNickname = #{userNickname},
+                </if>
+                <if test="userMobile != null">
+                    userMobile = #{userMobile},
+                </if>
+                <if test="userEmail != null">
+                    userEmail = #{userEmail},
+                </if>
+                <if test="userPassword != null">
+                    userPassword = #{userPassword},
+                </if>
+                <if test="userSchool != null">
+                    userSchool = #{userSchool},
+                </if>
+                <if test="userSno != null">
+                    userSno = #{userSno},
+                </if>
+                <if test="reverse1 != null">
+                    reverse1 = #{reverse1},
+                </if>
+                <if test="reverse2 != null">
+                    reverse2 = #{reverse2},
+                </if>
+            </trim>
+        </set>
+        where userId = #{userId}
+    </update>
+
+    <delete id="deleteUser" parameterType="java.lang.String">
+        delete from edu_user
+        where userId = #{userId}
+    </delete>
 
 
 

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--映射文件与接口的对应关系-->
+<mapper namespace="com.zlt.mapper.EduUserCourseMapper">
+
+    <select id="findByUserId" resultType="com.zlt.pojo.EduUserCourse" parameterType="java.lang.String">
+        select * from edu_usrCou where userId = #{userId}
+    </select>
+
+    <select id="findByCourseId" resultType="com.zlt.pojo.EduUserCourse" parameterType="java.lang.String">
+        select *
+        from edu_usrCou
+        where courseId = #{courseId}
+    </select>
+
+    <insert id="addUserCourse" parameterType="com.zlt.pojo.EduUserCourse">
+        insert into edu_usrCou
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="userId != null">
+                userId,
+            </if>
+            <if test="courseId != null">
+                courseId,
+            </if>
+            <if test="percent != null">
+                percent,
+            </if>
+            <if test="score != null">
+                score,
+            </if>
+            <if test="reverse1 != null">
+                reverse1,
+            </if>
+            <if test="reverse2 != null">
+                reverse2,
+            </if>
+        </trim>
+        <trim prefix="value (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="userId != null">
+                #{userId},
+            </if>
+            <if test="courseId != null">
+                #{courseId},
+            </if>
+            <if test="percent != null">
+                #{percent},
+            </if>
+            <if test="score != null">
+                #{score},
+            </if>
+            <if test="reverse1 != null">
+                #{reverse1},
+            </if>
+            <if test="reverse2 != null">
+                #{reverse2},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateUserCourse" parameterType="com.zlt.pojo.EduUserCourse">
+        update edu_usrCou
+        <set>
+            <trim>
+                <if test="userId != null">
+                    userId = #{userId},
+                </if>
+                <if test="courseId != null">
+                    courseId = #{courseId},
+                </if>
+                <if test="percent != null">
+                    percent = #{percent},
+                </if>
+                <if test="score != null">
+                    score = #{score},
+                </if>
+                <if test="reverse1 != null">
+                    reverse1 = #{reverse1},
+                </if>
+                <if test="reverse2 != null">
+                    reverse2 = #{reverse2},
+                </if>
+            </trim>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteUserCourse" parameterType="java.lang.String">
+        delete from edu_usrCou
+        where id = #{id}
+    </delete>
+
+</mapper>

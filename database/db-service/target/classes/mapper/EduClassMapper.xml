@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--映射文件与接口的对应关系-->
+<mapper namespace="com.zlt.mapper.EduClassMapper">
+
+    <select id="queryClasses" resultType="com.zlt.pojo.EduClass">
+        select * from edu_class
+    </select>
+
+    <insert id="addClass" parameterType="com.zlt.pojo.EduClass">
+        insert into edu_class
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="classId != null">
+                classId,
+            </if>
+            <if test="className != null">
+                className,
+            </if>
+            <if test="classNumber != null">
+                classNumber,
+            </if>
+            <if test="reverse1 != null">
+                reverse1,
+            </if>
+            <if test="reverse2 != null">
+                reverse2,
+            </if>
+        </trim>
+        <trim prefix="value (" suffix=")" suffixOverrides=",">
+            <if test="classId != null">
+                #{classId},
+            </if>
+            <if test="className != null">
+                #{className},
+            </if>
+            <if test="classNumber != null">
+                #{classNumber},
+            </if>
+            <if test="reverse1 != null">
+                #{reverse1},
+            </if>
+            <if test="reverse2 != null">
+                #{reverse2},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateClass" parameterType="com.zlt.pojo.EduClass">
+        update edu_class
+        <set>
+            <trim>
+                <if test="classId != null">
+                    classId = #{classId},
+                </if>
+                <if test="className != null">
+                    className = #{className},
+                </if>
+                <if test="classNumber != null">
+                    classNumber = #{classNumber},
+                </if>
+                <if test="reverse1 != null">
+                    reverse1 = #{reverse1},
+                </if>
+                <if test="reverse2 != null">
+                    reverse2 = #{reverse2},
+                </if>
+            </trim>
+        </set>
+        where userId = #{userId}
+    </update>
+
+    <delete id="deleteClass" parameterType="java.lang.String">
+        delete from edu_class
+        where classId = #{classId}
+    </delete>
+
+
+
+</mapper>
