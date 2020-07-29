@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--映射文件与接口的对应关系-->
+<mapper namespace="com.zlt.mapper.EduUserMapper">
+
+    <select id="findById" resultType="com.zlt.pojo.EduUser">
+        select * from edu_user where userId = #{userId}
+    </select>
+
+    <select id="queryUsers" resultType="com.zlt.pojo.EduUser">
+        select * from edu_user
+    </select>
+
+    <select id="findByEmail" resultType="com.zlt.pojo.EduUser" parameterType="java.lang.String">
+        select *
+        from edu_user
+        where EduUser.userEmail = #{userEmail}
+    </select>
+
+    <select id="findByMobile" resultType="com.zlt.pojo.EduUser" parameterType="java.lang.String">
+        select *
+        from edu_user
+        where EduUser.userMobile = #{userMobile}
+    </select>
+
+    <insert id="addUser" parameterType="com.zlt.pojo.EduUser">
+        insert into edu_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                userId,
+            </if>
+            <if test="userPortrait != null">
+                userPortrait,
+            </if>
+            <if test="userNickname != null">
+                userNickname,
+            </if>
+            <if test="userMobile != null">
+                userMobile,
+            </if>
+            <if test="userEmail != null">
+                userEmail,
+            </if>
+            <if test="userPassword != null">
+                userPassword,
+            </if>
+            <if test="userSchool != null">
+                userSchool,
+            </if>
+            <if test="userSno != null">
+                userSno,
+            </if>
+            <if test="reverse1 != null">
+                reverse1,
+            </if>
+            <if test="reverse2 != null">
+                reverse2,
+            </if>
+        </trim>
+        <trim prefix="value (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                #{userId},
+            </if>
+            <if test="userPortrait != null">
+                #{userPortrait},
+            </if>
+            <if test="userNickname != null">
+                #{userNickname},
+            </if>
+            <if test="userMobile != null">
+                #{userMobile},
+            </if>
+            <if test="userEmail != null">
+                #{userEmail},
+            </if>
+            <if test="userPassword != null">
+                #{userPassword},
+            </if>
+            <if test="userSchool != null">
+                #{userSchool},
+            </if>
+            <if test="userSno != null">
+                #{userSno},
+            </if>
+            <if test="reverse1 != null">
+                #{reverse1},
+            </if>
+            <if test="reverse2 != null">
+                #{reverse2},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateUser" parameterType="com.zlt.pojo.EduUser">
+        update edu_user
+        <set>
+            <trim>
+                <if test="userPortrait != null">
+                    userPortrait = #{userPortrait},
+                </if>
+                <if test="userNickname != null">
+                    userNickname = #{userNickname},
+                </if>
+                <if test="userMobile != null">
+                    userMobile = #{userMobile},
+                </if>
+                <if test="userEmail != null">
+                    userEmail = #{userEmail},
+                </if>
+                <if test="userPassword != null">
+                    userPassword = #{userPassword},
+                </if>
+                <if test="userSchool != null">
+                    userSchool = #{userSchool},
+                </if>
+                <if test="userSno != null">
+                    userSno = #{userSno},
+                </if>
+                <if test="reverse1 != null">
+                    reverse1 = #{reverse1},
+                </if>
+                <if test="reverse2 != null">
+                    reverse2 = #{reverse2},
+                </if>
+            </trim>
+        </set>
+        where userId = #{userId}
+    </update>
+
+    <delete id="deleteUser" parameterType="java.lang.String">
+        delete from edu_user
+        where userId = #{userId}
+    </delete>
+
+
+
+</mapper>

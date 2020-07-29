@@ -2,7 +2,11 @@
 #应用名称
 #eureka
 server:
+<<<<<<< HEAD
+  port: 8081
+=======
   port: 14441
+>>>>>>> origin/master
 
 #数据库连接，连接池
 spring:
