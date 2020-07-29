@@ -4,19 +4,19 @@
 
 <mapper namespace="com.zlt.mapper.PaperTorfMapper">
     <select id="findAllPaperTorf" resultType="com.zlt.pojo.EduPapertorf">
-            select * from edu_papermulti
+            select * from edu_papertorf
         </select>
     <select id="findPaperTorfById" resultType="com.zlt.pojo.EduPapertorf" parameterType="java.lang.String">
-            select * from edu_papermulti where id=#{id}
+            select * from edu_papertorf where id=#{id}
         </select>
     <insert id="addPaperTorf" parameterType="com.zlt.pojo.EduPapertorf" >
-            INSERT INTO edu_papermulti (id, paperId, torfId, createTime, updateTime, reserv1, reserv2) VALUES (#{id}, #{paperId}, #{torfId}, #{createTime}, #{updateTime}, #{reserve1}, #{reserve2})
+            INSERT INTO edu_papertorf (id, paperId, torfId, createTime, updateTime, reserv1, reserv2) VALUES (#{id}, #{paperId}, #{torfId}, #{createTime}, #{updateTime}, #{reserv1}, #{reserv2})
         </insert>
     <delete id="deletePaperTorf" parameterType="java.lang.String">
-            delete from edu_papermulti where id=#{id}
+            delete from edu_papertorf where id=#{id}
         </delete>
     <update id="updatePaperTorf" parameterType="com.zlt.pojo.EduPapertorf">
-            UPDATE updateChapter SET paperId=#{paperId}, torfId=#{torfId}, createTime=#{createTime}, updateTime=#{createTime}, reverse1=#{reverse1}, reverse2=#{reverse2} where id=#{id}
+            UPDATE edu_papertorf SET paperId=#{paperId}, torfId=#{torfId}, createTime=#{createTime}, updateTime=#{createTime}, reserv1=#{reserv1}, reserv2=#{reserv2} where id=#{id}
         </update>
 </mapper>
 

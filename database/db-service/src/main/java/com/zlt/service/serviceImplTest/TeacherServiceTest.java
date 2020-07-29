@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class TeacherServiceTest {
     @Autowired(required = false)
-    private TeacherService EduTeacher;
+    private TeacherService eduTeacher;
 
 //    @Test
 //    public void addUser(){
@@ -27,9 +27,15 @@ public class TeacherServiceTest {
 //        Assert.assertEquals(1,result);
 //    }
 
-    @Test
-    public  void findExamByid(){
-        EduTeacher eduExam = EduTeacher.findByTeacherId("01");
-        System.out.println(eduExam.getTeacherEmail());
-    }
+//    @Test
+//    public  void findExamByid(){
+//        EduTeacher eduExam = EduTeacher.findByTeacherId("01");
+//        System.out.println(eduExam.getTeacherEmail());
+//    }
+
+//    @Test
+//    public  void update(){
+//        EduTeacher eduExam = eduTeacher.findByTeacherId("01");
+//        eduExam.setTeacherNickname("测试用");
+//    }
 }
