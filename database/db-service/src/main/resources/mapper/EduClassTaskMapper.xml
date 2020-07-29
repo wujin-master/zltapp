@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--映射文件与接口的对应关系-->
+<mapper namespace="com.zlt.mapper.EduClassTaskMapper">
+
+    <select id="findByClassId" resultType="com.zlt.pojo.EduClassTask" parameterType="java.lang.String">
+        select * from edu_classTask where classId = #{classId}
+    </select>
+
+    <select id="findByTaskId" resultType="com.zlt.pojo.EduClassTask" parameterType="java.lang.String">
+        select *
+        from edu_classTask
+        where taskId = #{taskId}
+    </select>
+
+    <insert id="addUserCourse" parameterType="com.zlt.pojo.EduClassTask">
+        insert into edu_classTask
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="classId != null">
+                classId,
+            </if>
+            <if test="taskId != null">
+                taskId,
+            </if>
+            <if test="reverse1 != null">
+                reverse1,
+            </if>
+            <if test="reverse2 != null">
+                reverse2,
+            </if>
+        </trim>
+        <trim prefix="value (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="classId != null">
+                #{classId},
+            </if>
+            <if test="taskId != null">
+                #{taskId},
+            </if>
+            <if test="reverse1 != null">
+                #{reverse1},
+            </if>
+            <if test="reverse2 != null">
+                #{reverse2},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateClassTask" parameterType="com.zlt.pojo.EduClassTask">
+        update edu_classTask
+        <set>
+            <trim>
+                <if test="classId != null">
+                    classId = #{classId},
+                </if>
+                <if test="taskId != null">
+                    taskId = #{taskId},
+                </if>
+                <if test="reverse1 != null">
+                    reverse1 = #{reverse1},
+                </if>
+                <if test="reverse2 != null">
+                    reverse2 = #{reverse2},
+                </if>
+            </trim>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteClassTask" parameterType="java.lang.String">
+        delete from edu_classTask
+        where id = #{id}
+    </delete>
+
+</mapper>

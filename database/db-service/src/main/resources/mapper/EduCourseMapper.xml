@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--映射文件与接口的对应关系-->
+<mapper namespace="com.zlt.mapper.EduCourseMapper">
+
+<!--    <resultMap id="BaseResultMap1" type="com.lfc.pojo.Course">-->
+<!--        <id column="courseId" property="courseId" />-->
+<!--        <result column="courseName" property="courseName" />-->
+<!--        <result column="courseMaster" property="courseMaster" />-->
+<!--        <result column="courseDescription" property="courseDescription" />-->
+<!--        <result column="coverImg" property="coverImg" />-->
+<!--        <result column="userId" property="userId" />-->
+<!--        <result column="liveUrl" property="liveUrl" />-->
+<!--        &lt;!&ndash;一对多&ndash;&gt;-->
+<!--        <collection property="usr_couList" ofType="Usr_Cou">-->
+<!--            <id column="id" property="id" />-->
+<!--            <result column="userId" property="userId" />-->
+<!--            <result column="courseId" property="courseId" />-->
+<!--            &lt;!&ndash;            <result column="userPortrait" property="userPortrait" />&ndash;&gt;-->
+<!--            &lt;!&ndash;            <result column="userNickname" property="userNickname" />&ndash;&gt;-->
+<!--            &lt;!&ndash;            <result column="userMobile" property="userMobile" />&ndash;&gt;-->
+<!--            &lt;!&ndash;            <result column="userEmail" property="userEmail" />&ndash;&gt;-->
+<!--            &lt;!&ndash;            <result column="userPassword" property="userPassword" />&ndash;&gt;-->
+<!--            &lt;!&ndash;            <result column="userSchool" property="userSchool" />&ndash;&gt;-->
+<!--            &lt;!&ndash;            <result column="userSno" property="userSno" />&ndash;&gt;-->
+<!--        </collection>-->
+<!--    </resultMap>-->
+
+    <select id="findAll" resultType="com.zlt.pojo.EduCourse">
+        select * from edu_course
+    </select>
+
+    <select id="findById" resultType="com.zlt.pojo.EduCourse" parameterType="java.lang.String">
+        select edu_course.*
+        from edu_course,usr_cou
+        where usr_cou.courseId = edu_course.courseId and usr_cou.userId = #{userId}
+    </select>
+
+    <insert id="addCourse" parameterType="com.zlt.pojo.EduCourse">
+        insert into edu_course
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="courseId != null">
+                courseId,
+            </if>
+            <if test="courseName != null">
+                courseName,
+            </if>
+            <if test="courseMaster != null">
+                courseMaster,
+            </if>
+            <if test="courseDescription != null">
+                courseDescription,
+            </if>
+            <if test="coverImg != null">
+                coverImg,
+            </if>
+            <if test="liveUrl != null">
+                liveUrl,
+            </if>
+        </trim>
+        <trim prefix="value (" suffix=")" suffixOverrides=",">
+            <if test="courseId != null">
+                #{courseId},
+            </if>
+            <if test="courseName != null">
+                #{courseName},
+            </if>
+            <if test="courseMaster != null">
+                #{courseMaster},
+            </if>
+            <if test="courseDescription != null">
+                #{courseDescription},
+            </if>
+            <if test="coverImg != null">
+                #{coverImg},
+            </if>
+            <if test="liveUrl != null">
+                #{liveUrl},
+            </if>
+            <if test="reverse1 != null">
+                reverse1,
+            </if>
+            <if test="reverse2 != null">
+                reverse2,
+            </if>
+        </trim>
+    </insert>
+
+    <select id="getCourseByNameMaster" resultType="com.zlt.pojo.EduCourse">
+        select *
+        from edu_course
+        where courseName = #{0} and courseMaster = #{1}
+    </select>
+
+    <delete id="deleteCourse" parameterType="java.lang.String">
+        delete from edu_course
+        where courseId = #{courseId}
+    </delete>
+
+    <update id="updateCourse" parameterType="com.zlt.pojo.EduCourse">
+        update edu_course
+        <set>
+            <trim prefix="value (" suffix=")" suffixOverrides=",">
+                <if test="courseName != null">
+                    courseName = #{courseName},
+                </if>
+                <if test="courseMaster != null">
+                    courseMaster = #{courseMaster},
+                </if>
+                <if test="courseDescription != null">
+                    courseDescription = #{courseDescription},
+                </if>
+                <if test="coverImg != null">
+                    coverImg = #{coverImg},
+                </if>
+                <if test="liveUrl != null">
+                    liveUrl = #{liveUrl},
+                </if>
+                <if test="reverse1 != null">
+                    reverse1 = #{reverse1},
+                </if>
+                <if test="reverse2 != null">
+                    reverse2 = #{reverse2},
+                </if>
+            </trim>
+        </set>
+    </update>
+</mapper>
