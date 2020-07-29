@@ -18,7 +18,7 @@
             delete from edu_classExam where id =#{id}
         </delete>
     <update id="updateClassExam" parameterType="com.zlt.pojo.EduClassExam">
-            UPDATE updateChapter SET classId=#{classId}, examId=#{examId}, reverse1=#{reverse1}, reverse2=#{reverse2} where id =#{id}
+            UPDATE edu_classExam SET classId=#{classId}, examId=#{examId}, reverse1=#{reverse1}, reverse2=#{reverse2} where id =#{id}
         </update>
 </mapper>
 

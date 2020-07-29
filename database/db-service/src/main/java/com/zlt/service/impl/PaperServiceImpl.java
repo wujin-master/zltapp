@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 public class PaperServiceImpl implements PaperService {
-    @Autowired
+    @Autowired(required = false)
     private PaperMapper paperMapper;
 
     @Override

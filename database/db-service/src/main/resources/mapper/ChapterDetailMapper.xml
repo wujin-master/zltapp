@@ -16,6 +16,6 @@
             delete from edu_chapterdetail where chaptDeId =#{chaptDeId}
         </delete>
         <update id="updateChapterDetail" parameterType="com.zlt.pojo.EduChapterdetail">
-            UPDATE updateChapterDetail SET chaptDeName=#{chaptDeName}, chaptDeUrl=#{chaptDeUrl}, chapterId=#{chapterId}, reverse1=#{reverse1}, reverse2=#{reverse2} WHERE chaptDeId =#{chaptDeId}
+            UPDATE edu_chapterdetail SET chaptDeName=#{chaptDeName}, chaptDeUrl=#{chaptDeUrl}, chapterId=#{chapterId}, reverse1=#{reverse1}, reverse2=#{reverse2} WHERE chaptDeId =#{chaptDeId}
         </update>
 </mapper>

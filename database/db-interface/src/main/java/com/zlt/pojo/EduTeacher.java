@@ -13,8 +13,8 @@ public class EduTeacher {
     private String teacherSchool;
     private Date createTime;
     private Date updateTime;
-    private String reserve1;
-    private String reserve2;
+    private String reverse1;
+    private String reverse2;
 
     public EduTeacher() {
     }
@@ -30,9 +30,11 @@ public class EduTeacher {
         this.teacherSchool = teacherSchool;
         this.createTime = createTime;
         this.updateTime = updateTime;
-        this.reserve1 = reserve1;
-        this.reserve2 = reserve2;
+        this.reverse1 = reverse1;
+        this.reverse2 = reverse2;
     }
+
+
 
     public String getTeacherId() {
         return teacherId;
@@ -114,20 +116,20 @@ public class EduTeacher {
         this.updateTime = updateTime;
     }
 
-    public String getReserve1() {
-        return reserve1;
+    public String getReverse1() {
+        return reverse1;
     }
 
-    public void setReserve1(String reserve1) {
-        this.reserve1 = reserve1;
+    public void setReverse1(String reverse1) {
+        this.reverse1 = reverse1;
     }
 
-    public String getReserve2() {
-        return reserve2;
+    public String getReverse2() {
+        return reverse2;
     }
 
-    public void setReserve2(String reserve2) {
-        this.reserve2 = reserve2;
+    public void setReverse2(String reverse2) {
+        this.reverse2 = reverse2;
     }
 
     @Override
@@ -143,8 +145,8 @@ public class EduTeacher {
                 ", teacherSchool='" + teacherSchool + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
-                ", reserve1='" + reserve1 + '\'' +
-                ", reserve2='" + reserve2 + '\'' +
+                ", reserve1='" + reverse1 + '\'' +
+                ", reserve2='" + reverse2 + '\'' +
                 '}';
     }
 }

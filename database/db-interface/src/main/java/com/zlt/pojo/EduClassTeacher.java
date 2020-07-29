@@ -1,5 +1,6 @@
 package com.zlt.pojo;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class EduClassTeacher {

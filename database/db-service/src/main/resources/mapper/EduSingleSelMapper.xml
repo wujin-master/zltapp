@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--映射文件与接口的对应关系-->
+<mapper namespace="com.zlt.mapper.EduSingleSelMapper">
+    <select id="selectAllSingle" resultType="com.zlt.pojo.EduSingleSel">
+        select * from edu_singlesel
+    </select>
+
+    <select id="selectSingleById" parameterType="java.lang.String" resultType="com.zlt.pojo.EduSingleSel">
+        select * from edu_singlesel
+        where id = #{id}
+    </select>
+
+    <insert id="insertOne" parameterType="com.zlt.pojo.EduSingleSel">
+        insert into edu_singlesel(id,question,choiceA,choiceB,choiceC,choiceD,answer,score)
+        values (#{id},#{question},#{choiceA},#{choiceB},#{choiceC},#{choiceD},#{answer},#{score})
+        where id=#{id}
+    </insert>
+
+    <delete id="deleteSingleById" parameterType="java.lang.String">
+        delete from edu_singlesel
+        where id = #{id}
+    </delete>
+    
+    <update id="updateSingle" parameterType="com.zlt.pojo.EduSingleSel">
+        update edu_singlesel
+        set question=#{question},choiceA=#{choiceA},choiceB=#{choiceB},
+        choiceC=#{choiceC},choiceD=#{choiceD},answer=#{answer},score=#{score}
+        where id=#{id}
+    </update>
+</mapper>
