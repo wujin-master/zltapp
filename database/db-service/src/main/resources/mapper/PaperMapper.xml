@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+    <mapper namespace="com.zlt.mapper.PaperMapper">
+        <select id="findAllPaper" resultType="com.zlt.pojo.EduPaper">
+            select * from edu_paper
+        </select>
+        <select id="findPaperByPaperId" resultType="com.zlt.pojo.EduPaper" parameterType="java.lang.String">
+            select * from edu_paper where paperId=#{paperId}
+        </select>
+        <insert id="addPaper" parameterType="com.zlt.pojo.EduPaper" >
+            INSERT INTO edu_paper (paperId, paperName, questionNumber, courseName, paperState, paperGrade, createTime, updateTime, reserve1, reserve2) VALUES (#{paperId}, #{paperName}, #{questionNumber}, #{courseName}, #{paperState}, #{paperGrade}, #{createTime}, #{updateTime}, #{reserve1}, #{reserve2})
+        </insert>
+        <delete id="deletePaper" parameterType="java.lang.String">
+            delete from edu_paper where paperId=#{paperId}
+        </delete>
+        <update id="updatePaper" parameterType="com.zlt.pojo.EduPaper">
+            UPDATE updateChapter SET paperId=#{paperId}, paperName=#{paperName}, questionNumber=#{questionNumber}, courseName=#{courseName}, paperState=#{paperState}, paperGrade=#{paperGrade},createTime=#{createTime}, updateTime=#{createTime}, reverse1=#{reverse1}, reverse2=#{reverse2} where paperId=#{paperId}
+        </update>
+    </mapper>
