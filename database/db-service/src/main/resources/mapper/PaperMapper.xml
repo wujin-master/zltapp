@@ -16,6 +16,6 @@
             delete from edu_paper where paperId=#{paperId}
         </delete>
         <update id="updatePaper" parameterType="com.zlt.pojo.EduPaper">
-            UPDATE edu_paper SET paperId=#{paperId}, paperName=#{paperName}, questionNumber=#{questionNumber}, courseName=#{courseName}, paperState=#{paperState}, paperGrade=#{paperGrade},createTime=#{createTime}, updateTime=#{createTime}, reserve1=#{reserve1}, reverse2=#{reverse2} where paperId=#{paperId}
+            UPDATE edu_paper SET paperId=#{paperId}, paperName=#{paperName}, questionNumber=#{questionNumber}, courseName=#{courseName}, paperState=#{paperState}, paperGrade=#{paperGrade},createTime=#{createTime}, updateTime=#{createTime}, reserve1=#{reserve1}, reserve2=#{reserve2} where paperId=#{paperId}
         </update>
     </mapper>
