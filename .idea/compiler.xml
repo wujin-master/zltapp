@@ -10,24 +10,20 @@
         <module name="dbservice" />
         <module name="test" />
         <module name="common" />
+        <module name="teacher (1)" />
         <module name="teacher" />
         <module name="chat" />
         <module name="eureka" />
+        <module name="courseStudent" />
         <module name="dbinterface" />
         <module name="db-service" />
         <module name="db-interface" />
         <module name="courseTeacher" />
       </profile>
-      <profile name="Annotation profile for team4" enabled="true">
-        <sourceOutputDir name="../teacher/target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../teacher/target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="student" />
-      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="courseStudent" target="1.8" />
       <module name="courseTeacher (1)" target="1.8" />
+      <module name="student" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -48,6 +44,7 @@
       <module name="proson" options="-parameters" />
       <module name="student" options="-parameters" />
       <module name="teacher" options="-parameters" />
+      <module name="teacher (1)" options="-parameters" />
       <module name="test" options="-parameters" />
     </option>
   </component>

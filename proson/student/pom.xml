@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>teacher</artifactId>
+    <artifactId>student</artifactId>
 
     <dependencies>
         <!--数据库依赖-->
