@@ -69,4 +69,6 @@ public class EduUserController {
         eduUserService.addUser(eduUser);
         return Result.success();
     }
+
+
 }

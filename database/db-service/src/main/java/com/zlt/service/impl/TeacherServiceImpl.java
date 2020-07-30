@@ -42,4 +42,9 @@ public class TeacherServiceImpl implements TeacherService {
     public EduTeacher findTeacherByMobile(String teacherMobile){
         return teacherMapper.findTeacherByMobile(teacherMobile);
     }
+
+    @Override
+    public EduTeacher findByEmail(String teacherEmail){
+        return teacherMapper.findByEmail(teacherEmail);
+    }
 }
