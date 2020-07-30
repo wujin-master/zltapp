@@ -16,13 +16,13 @@
     <select id="findByEmail" resultType="com.zlt.pojo.EduUser" parameterType="java.lang.String">
         select *
         from edu_user
-        where EduUser.userEmail = #{userEmail}
+        where userEmail = #{userEmail}
     </select>
 
     <select id="findByMobile" resultType="com.zlt.pojo.EduUser" parameterType="java.lang.String">
         select *
         from edu_user
-        where EduUser.userMobile = #{userMobile}
+        where userMobile = #{userMobile}
     </select>
 
     <insert id="addUser" parameterType="com.zlt.pojo.EduUser">

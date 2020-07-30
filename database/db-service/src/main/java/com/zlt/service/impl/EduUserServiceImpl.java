@@ -38,4 +38,14 @@ public class EduUserServiceImpl implements EduUserService {
     public EduUser findById(String id) {
         return eduUserMapper.findById(id);
     }
+
+    @Override
+    public EduUser findByEmail(String email) {
+        return eduUserMapper.findByEmail(email);
+    }
+
+    @Override
+    public EduUser findByMobile(String mobile) {
+        return eduUserMapper.findByMobile(mobile);
+    }
 }

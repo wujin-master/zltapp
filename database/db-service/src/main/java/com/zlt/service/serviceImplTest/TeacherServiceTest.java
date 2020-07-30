@@ -1,11 +1,7 @@
 package com.zlt.service.serviceImplTest;
 
 
-import com.zlt.pojo.EduTeacher;
 import com.zlt.service.TeacherService;
-import com.zlt.utils.UUIDUtil;
-import org.junit.Assert;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

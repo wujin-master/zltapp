@@ -23,7 +23,7 @@ public class EduClassServiceImplTest {
     @Test
     public void addClass() {
         EduClass eduClass = new EduClass();
-        eduClass.setClassId("123456");
+        eduClass.setClassId("1234567");
         int result = eduClassService.addClass(eduClass);
         Assert.assertEquals(1,result);
     }

@@ -15,6 +15,7 @@
         <module>chat</module>
         <module>gateway</module>
         <module>proson</module>
+        <module>test</module>
     </modules>
 
     <parent>

@@ -10,4 +10,6 @@ public interface EduUserService {
     int updateUser(EduUser eduUser);
     List<EduUser> findAll();
     EduUser findById(String id);
+    EduUser findByEmail(String email);
+    EduUser findByMobile(String mobile);
 }

@@ -12,4 +12,6 @@ public interface EduUserMapper {
     int deleteUser(String id);
     int updateUser(EduUser eduUser);
     EduUser findById(String id);
+    EduUser findByEmail(String email);
+    EduUser findByMobile(String mobile);
 }
