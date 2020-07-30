@@ -11,7 +11,7 @@ public class EduMultiSel {
     private String choiceC;
     private String choiceD;
     private String answer;
-    private String score;
+    private double score;
     private Date createTime;
     private Date updateTime;
     private String reserv1;
@@ -76,11 +76,11 @@ public class EduMultiSel {
         this.answer = answer;
     }
 
-    public String getScore() {
+    public double getScore() {
         return score;
     }
 
-    public void setScore(String score) {
+    public void setScore(double score) {
         this.score = score;
     }
 

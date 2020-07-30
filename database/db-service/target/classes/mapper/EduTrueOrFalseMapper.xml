@@ -16,7 +16,6 @@
     <insert id="insertOne" parameterType="com.zlt.pojo.EduTrueOrFalse">
         insert into edu_trueorfalse(id,question,answer,score,createTime,updateTime)
         values (#{id},#{question},#{answer},#{score},#{createTime},#{updateTime})
-        where id=#{id}
     </insert>
 
     <delete id="deleteById" parameterType="java.lang.String">

@@ -7,7 +7,7 @@ public class EduTrueOrFalse {
     private String id;
     private String question;
     private String answer;
-    private String score;
+    private double score;
     private Date createTime;
     private Date updateTime;
     private String reserv1;
@@ -40,11 +40,11 @@ public class EduTrueOrFalse {
         this.answer = answer;
     }
 
-    public String getScore() {
+    public double getScore() {
         return score;
     }
 
-    public void setScore(String score) {
+    public void setScore(double score) {
         this.score = score;
     }
 

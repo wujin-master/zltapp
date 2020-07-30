@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <!--映射文件与接口的对应关系-->
-<mapper namespace="com.zlt.mapper.EduClassTeacherMapper">
+<mapper namespace="com.zlt.mapper.EduPaperSingleMapper">
     <select id="findAll" resultType="com.zlt.pojo.EduPaperSingle">
         select * from edu_papersingle
     </select>

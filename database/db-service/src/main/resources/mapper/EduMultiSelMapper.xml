@@ -16,7 +16,6 @@
     <insert id="insertOne" parameterType="com.zlt.pojo.EduMultiSel">
         insert into edu_multisel(id,question,choiceA,choiceB,choiceC,choiceD,answer,score)
         values (#{id},#{question},#{choiceA},#{choiceB},#{choiceC},#{choiceD},#{answer},#{score})
-        where id=#{id}
     </insert>
 
     <delete id="deleteMultyiById" parameterType="java.lang.String">
