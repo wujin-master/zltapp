@@ -12,6 +12,7 @@
         <module>eureka</module>
         <module>common</module>
         <module>database</module>
+        <module>gateway</module>
     </modules>
 
     <parent>
