@@ -1,4 +1,4 @@
-package com.sqf.pojo;
+package com.zlt.pojo;
 
 public class SendMessage {
     private String head;
