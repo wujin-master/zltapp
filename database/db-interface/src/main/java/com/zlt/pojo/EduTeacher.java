@@ -34,8 +34,6 @@ public class EduTeacher {
         this.reverse2 = reverse2;
     }
 
-
-
     public String getTeacherId() {
         return teacherId;
     }
@@ -145,8 +143,9 @@ public class EduTeacher {
                 ", teacherSchool='" + teacherSchool + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
-                ", reserve1='" + reverse1 + '\'' +
-                ", reserve2='" + reverse2 + '\'' +
+                ", reverse1='" + reverse1 + '\'' +
+                ", reverse2='" + reverse2 + '\'' +
                 '}';
     }
 }
+

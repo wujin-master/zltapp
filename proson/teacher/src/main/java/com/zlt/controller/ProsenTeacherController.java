@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("")
-public class ProsenStudentComtroller {
+@RequestMapping("edu_teacher")
+public class ProsenTeacherController {
 
     @Autowired(required=false)
     private TeacherService teacherService;

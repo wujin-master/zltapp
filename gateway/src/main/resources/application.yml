@@ -11,7 +11,8 @@ zuul:
   prefix: /api # 路由路径前缀
   routes:
     database: /database/** # 微服务的映射路径
-    prosenStudent: /prosenStudent/** # 微服务的映射路径
+    prosenStudent: /prosenStudent/** # 个人中心-学生的映射路径
+    prosenTeacher: /prosenTeacher/** # 个人中心-教师的映射路径
 #    communication: /chat/** # 微服务的映射路径
 #    person: /person/** # 微服务的映射路径
 eureka:

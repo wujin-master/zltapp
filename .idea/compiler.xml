@@ -13,9 +13,9 @@
         <module name="teacher" />
         <module name="chat" />
         <module name="eureka" />
-        <module name="db-interface" />
-        <module name="db-service" />
         <module name="dbinterface" />
+        <module name="db-service" />
+        <module name="db-interface" />
       </profile>
     </annotationProcessing>
   </component>
