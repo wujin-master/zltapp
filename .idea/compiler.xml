@@ -6,25 +6,36 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="teacher (1)" />
+        <module name="courseTeacher" />
+        <module name="db-service" />
+        <module name="dbservice" />
         <module name="student" />
         <module name="gateway" />
-        <module name="dbservice" />
-        <module name="test" />
-        <module name="common" />
-        <module name="teacher" />
         <module name="chat" />
-        <module name="eureka" />
-        <module name="exam" />
+        <module name="test" />
+        <module name="courseStudent" />
         <module name="dbinterface" />
-        <module name="db-service" />
+        <module name="exam" />
+        <module name="presonTeacher" />
+        <module name="eureka" />
+        <module name="common" />
         <module name="db-interface" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="courseTeacher (1)" target="1.8" />
+      <module name="teacher" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="chat" options="-parameters" />
       <module name="common" options="-parameters" />
+      <module name="course" options="-parameters" />
+      <module name="courseStudent" options="-parameters" />
+      <module name="courseTeacher" options="-parameters" />
+      <module name="courseTeacher (1)" options="-parameters" />
       <module name="database" options="-parameters" />
       <module name="db-interface" options="-parameters" />
       <module name="db-service" options="-parameters" />
@@ -33,9 +44,11 @@
       <module name="eureka" options="-parameters" />
       <module name="exam" options="-parameters" />
       <module name="gateway" options="-parameters" />
+      <module name="presonTeacher" options="-parameters" />
       <module name="proson" options="-parameters" />
       <module name="student" options="-parameters" />
       <module name="teacher" options="-parameters" />
+      <module name="teacher (1)" options="-parameters" />
       <module name="test" options="-parameters" />
     </option>
   </component>

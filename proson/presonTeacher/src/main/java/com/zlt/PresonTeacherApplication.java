@@ -1,13 +1,14 @@
 package com.zlt;
 
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class ProsentTeacherApplication {
+public class PresonTeacherApplication {
     public static void main(String[] args){
-        SpringApplication.run(ProsentTeacherApplication.class , args);
+        SpringApplication.run(PresonTeacherApplication.class , args);
     }
 }

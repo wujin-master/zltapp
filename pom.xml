@@ -17,6 +17,7 @@
         <module>proson</module>
         <module>test</module>
         <module>exam</module>
+        <module>course</module>
     </modules>
 
     <parent>
