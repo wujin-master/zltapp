@@ -19,7 +19,7 @@ public class EduTeacher {
     public EduTeacher() {
     }
 
-    public EduTeacher(String teacherId, String teacherPortrait, String teacherNickname, String teacherMobile, String teacherEmail, String teacherPassword, String teacherTno, String teacherSchool, Date createTime, Date updateTime, String reserve1, String reserve2) {
+    public EduTeacher(String teacherId, String teacherPortrait, String teacherNickname, String teacherMobile, String teacherEmail, String teacherPassword, String teacherTno, String teacherSchool, Date createTime, Date updateTime, String reverse1, String reverse2) {
         this.teacherId = teacherId;
         this.teacherPortrait = teacherPortrait;
         this.teacherNickname = teacherNickname;

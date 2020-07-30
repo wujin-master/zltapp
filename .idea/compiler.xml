@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="gateway" />
         <module name="dbservice" />
         <module name="common" />
         <module name="dbinterface" />
@@ -26,6 +27,7 @@
       <module name="dbinterface" options="-parameters" />
       <module name="dbservice" options="-parameters" />
       <module name="eureka" options="-parameters" />
+      <module name="gateway" options="-parameters" />
     </option>
   </component>
 </project>
