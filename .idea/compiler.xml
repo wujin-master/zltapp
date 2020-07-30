@@ -6,14 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="student" />
         <module name="gateway" />
         <module name="dbservice" />
         <module name="common" />
-        <module name="dbinterface" />
-        <module name="eureka" />
+        <module name="teacher" />
         <module name="chat" />
-        <module name="db-service" />
+        <module name="eureka" />
         <module name="db-interface" />
+        <module name="db-service" />
+        <module name="dbinterface" />
       </profile>
     </annotationProcessing>
   </component>
@@ -28,6 +30,9 @@
       <module name="dbservice" options="-parameters" />
       <module name="eureka" options="-parameters" />
       <module name="gateway" options="-parameters" />
+      <module name="proson" options="-parameters" />
+      <module name="student" options="-parameters" />
+      <module name="teacher" options="-parameters" />
     </option>
   </component>
 </project>
