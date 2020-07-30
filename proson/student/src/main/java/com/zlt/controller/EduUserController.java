@@ -69,4 +69,20 @@ public class EduUserController {
         eduUserService.addUser(eduUser);
         return Result.success();
     }
+
+    //找回密码
+    @PostMapping(value="/updatePasswd")
+    @ResponseBody
+    public Result upDateTeacher(@RequestBody EduTeacher eduteacher){
+        EduTeacher eduTeacher =  teacherService.findTeacherByMobile(eduteacher.getTeacherMobile());
+        //手机号或邮箱不存在
+        if(eduTeacher == null ){
+            return Result.failure(ResultCode.USERNAME_NOT_EXIST);
+        }else {
+            //密码加盐加密入库
+            String password = MD5Util.setDBPwd(eduteacher.getTeacherPassword(),salt);
+            eduTeacher.setTeacherPassword(password);
+            return Result.failure(ResultCode.SUCCESS);
+        }
+    }
 }

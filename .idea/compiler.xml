@@ -14,9 +14,10 @@
         <module name="teacher" />
         <module name="chat" />
         <module name="eureka" />
-        <module name="db-interface" />
-        <module name="db-service" />
+        <module name="exam" />
         <module name="dbinterface" />
+        <module name="db-service" />
+        <module name="db-interface" />
       </profile>
     </annotationProcessing>
   </component>
@@ -30,6 +31,7 @@
       <module name="dbinterface" options="-parameters" />
       <module name="dbservice" options="-parameters" />
       <module name="eureka" options="-parameters" />
+      <module name="exam" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="proson" options="-parameters" />
       <module name="student" options="-parameters" />

@@ -16,6 +16,7 @@
         <module>gateway</module>
         <module>proson</module>
         <module>test</module>
+        <module>exam</module>
     </modules>
 
     <parent>
