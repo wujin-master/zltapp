@@ -28,7 +28,7 @@ public class EduTaskServiceImpl implements EduTaskService {
     }
 
     @Override
-    public List<EduTask> findById(String id) {
+    public EduTask findById(String id) {
         return eduTaskMapper.findById(id);
     }
 }

@@ -1,7 +1,10 @@
 package com.zlt.pojo;
 
+import lombok.Data;
+
 import java.util.Date;
 
+@Data
 public class EduClass {
     private String classId;
     private String className;

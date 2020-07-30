@@ -17,6 +17,9 @@
             <if test="teacherId != null">
                 teacherId,
             </if>
+            <if test="taskNum != null">
+                taskNum,
+            </if>
             <if test="taskGrade != null">
                 taskGrade,
             </if>
@@ -42,6 +45,9 @@
             </if>
             <if test="teacherId != null">
                 #{teacherId},
+            </if>
+            <if test="taskNum != null">
+                #{taskNum},
             </if>
             <if test="taskGrade != null">
                 #{taskGrade},
@@ -71,6 +77,9 @@
                 <if test="teacherId != null">
                     teacherId = #{teacherId},
                 </if>
+                <if test="taskNum != null">
+                    taskNum = #{taskNum},
+                </if>
                 <if test="taskGrade != null">
                     taskGrade = #{taskGrade},
                 </if>
@@ -88,7 +97,7 @@
                 </if>
             </trim>
         </set>
-        where userId = #{userId}
+        where taskId = #{taskId}
     </update>
 
     <delete id="deleteTask" parameterType="java.lang.String">
@@ -96,7 +105,7 @@
         where taskId = #{taskId}
     </delete>
 
-    <select id="findById" parameterType="java.lang.String">
+    <select id="findById" parameterType="java.lang.String" resultType="com.zlt.pojo.EduTask">
         select *
         from edu_task
         where taskId = #{taskId}

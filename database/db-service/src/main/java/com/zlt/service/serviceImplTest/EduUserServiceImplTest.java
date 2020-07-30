@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class EduUserServiceImplTest {
 
     @Autowired(required = false)
-    private EduUserServiceImpl eduUserService;
+    private EduUserService eduUserService;
 
     @Test
     public void addUser(){
@@ -26,4 +26,7 @@ public class EduUserServiceImplTest {
         int result = eduUserService.addUser(eduUser);
         Assert.assertEquals(1,result);
     }
+
+
+
 }

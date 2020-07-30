@@ -15,7 +15,7 @@
         where taskId = #{taskId}
     </select>
 
-    <insert id="addUserCourse" parameterType="com.zlt.pojo.EduClassTask">
+    <insert id="addClassTask" parameterType="com.zlt.pojo.EduClassTask">
         insert into edu_classTask
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">

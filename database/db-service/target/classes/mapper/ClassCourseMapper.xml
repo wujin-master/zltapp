@@ -15,9 +15,9 @@
             INSERT INTO edu_classcourse (id, classId, courseId, reverse1, reverse2) VALUES (#{id}, #{classId}, #{courseId}, #{reverse1}, #{reverse2})
         </insert>
     <delete id="deleteClassCourse" parameterType="java.lang.String">
-            delete from edu_chapter where id =#{id}
+            delete from edu_classcourse where id =#{id}
         </delete>
     <update id="updateClassCourse" parameterType="com.zlt.pojo.EduClasscourse">
-            UPDATE updateChapter SET classId=#{classId}, courseId=#{courseId}, reverse1=#{reverse1}, reverse2=#{reverse2} where id =#{id}
+            UPDATE edu_classcourse SET classId=#{classId}, courseId=#{courseId}, reverse1=#{reverse1}, reverse2=#{reverse2} where id =#{id}
         </update>
 </mapper>

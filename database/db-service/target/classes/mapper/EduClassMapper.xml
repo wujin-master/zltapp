@@ -68,7 +68,7 @@
                 </if>
             </trim>
         </set>
-        where userId = #{userId}
+        where classId = #{classId}
     </update>
 
     <delete id="deleteClass" parameterType="java.lang.String">

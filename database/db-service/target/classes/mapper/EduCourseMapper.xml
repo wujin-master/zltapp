@@ -33,9 +33,9 @@
     </select>
 
     <select id="findById" resultType="com.zlt.pojo.EduCourse" parameterType="java.lang.String">
-        select edu_course.*
-        from edu_course,usr_cou
-        where usr_cou.courseId = edu_course.courseId and usr_cou.userId = #{userId}
+        select *
+        from edu_course
+        where courseId = #{courseId}
     </select>
 
     <insert id="addCourse" parameterType="com.zlt.pojo.EduCourse">
@@ -102,7 +102,6 @@
     <update id="updateCourse" parameterType="com.zlt.pojo.EduCourse">
         update edu_course
         <set>
-            <trim prefix="value (" suffix=")" suffixOverrides=",">
                 <if test="courseName != null">
                     courseName = #{courseName},
                 </if>
@@ -124,7 +123,6 @@
                 <if test="reverse2 != null">
                     reverse2 = #{reverse2},
                 </if>
-            </trim>
         </set>
     </update>
 </mapper>
