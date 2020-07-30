@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("edu_teacher")
-public class ProsenTeacherController {
+public class PresonTeacherController {
+
     //固定盐值
     private String salt = "4d5e6f";
 
@@ -112,6 +114,4 @@ public class ProsenTeacherController {
             return Result.failure(ResultCode.SUCCESS);
         }
     }
-
-
 }

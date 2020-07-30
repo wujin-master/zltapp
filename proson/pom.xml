@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>student</module>
-        <module>teacher</module>
+        <module>presonTeacher</module>
     </modules>
 
     <dependencies>
