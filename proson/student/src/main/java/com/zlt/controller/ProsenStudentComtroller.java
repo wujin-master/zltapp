@@ -23,10 +23,12 @@ public class ProsenStudentComtroller {
         return teacherService.findAllTeacher();
     }
 
-    @RequestMapping(value="/upDate",method={RequestMethod.GET})
+    @RequestMapping(value="/upDate",method={RequestMethod.POST})
     @ResponseBody
     public void upDateTeacher(){
         EduTeacher eduTeacher =  teacherService.findByTeacherId("01");
+        eduTeacher.setTeacherPassword("");
         System.out.println(eduTeacher.getTeacherMobile());
     }
+
 }

@@ -37,4 +37,9 @@ public class TeacherServiceImpl implements TeacherService {
     public int deleteTeacher(String teacherId) {
         return teacherMapper.deleteTeacher(teacherId);
     }
+
+    @Override
+    public EduTeacher findTeacherByMobile(String teacherMobile){
+        return teacherMapper.findTeacherByMobile(teacherMobile);
+    }
 }

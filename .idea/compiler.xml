@@ -14,14 +14,11 @@
         <module name="teacher" />
         <module name="chat" />
         <module name="eureka" />
-        <module name="dbinterface" />
-        <module name="db-service" />
         <module name="db-interface" />
+        <module name="db-service" />
+        <module name="dbinterface" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="gateway" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
