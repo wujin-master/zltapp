@@ -9,5 +9,8 @@
     <file url="file://$PROJECT_DIR$/database/db-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/proson" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/proson/student" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/proson/teacher" charset="UTF-8" />
   </component>
 </project>
