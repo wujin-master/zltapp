@@ -9,6 +9,7 @@ import java.util.List;
 public interface TeacherMapper {
     List<EduTeacher> findAllTeacher();
     EduTeacher findByTeacherId(String teacherId);
+    EduTeacher findTeacherByMobile(String teacherMobile);
     int addTeacher(EduTeacher eduTeacher);
     int updateTeacher(EduTeacher eduTeacher);
     int deleteTeacher(String teacherId);

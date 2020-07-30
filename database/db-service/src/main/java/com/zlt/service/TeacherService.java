@@ -8,6 +8,7 @@ public interface TeacherService {
 
     List<EduTeacher> findAllTeacher();
     EduTeacher findByTeacherId(String teacherId);
+    EduTeacher findTeacherByMobile(String teacherMobile);
     int addTeacher(EduTeacher eduTeacher);
     int updateTeacher(EduTeacher eduTeacher);
     int deleteTeacher(String teacherId);

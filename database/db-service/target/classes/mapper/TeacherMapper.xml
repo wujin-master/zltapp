@@ -8,6 +8,9 @@
     <select id="findByTeacherId" resultType="com.zlt.pojo.EduTeacher" parameterType="java.lang.String">
         select * from edu_teacher where teacherId=#{teacherId}
     </select>
+    <select id="findTeacherByMobile" resultType="com.zlt.pojo.EduTeacher" parameterType="java.lang.String">
+        select * from edu_teacher where teacherMobile=#{teacherMobile}
+    </select>
     <insert id="addTeacher" parameterType="com.zlt.pojo.EduTeacher" >                                                                                                                               <!--    teacherId,   teacherPortrait,       teacherNickname, teacherMobile,     teacherEmail,       teacherPassword,teacherTno,  teacherSchool,    createTime,            updateTime,           reverse1  reverse2;   -->
         INSERT INTO edu_teacher (teacherId,  teacherPortrait,  teacherNickname,teacherMobile,teacherEmail, teacherPassword, teacherTno, teacherSchool,createTime, updateTime,  reverse1, reverse2) VALUES (#{teacherId}, #{teacherPortrait}, #{teacherNickname}, #{teacherMobile}, #{teacherEmail}, #{teacherPassword}, #{teacherTno}, #{teacherSchool}, #{createTime}, #{updateTime}, #{reverse1}, #{reverse2})
     </insert>
