@@ -1,4 +1,4 @@
-package com.sqf.config;
+package com.zlt.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
