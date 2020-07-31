@@ -4,8 +4,6 @@ public enum ResultCode {
     SUCCESS(0,"成功"),
     PARAM_ERROR(-1,"参数不正确"),
 
-
-
     //成功返回的不需要再写结果码，默认时SUCCESS
     //失败结果返回码再后面添加，且注意最后一个需要以分号结尾，其余以逗号结束
     //比如插入失败，删除失败，查询失败等等，以便前端知晓错误原因
@@ -16,10 +14,7 @@ public enum ResultCode {
     LOGIN_PASSWORD_ERROR(1000,"登录密码错误"),
     USERNAME_NOT_EXIST(1001,"手机号或邮箱不存在"),
     REGISTER_EMAIL_HAS_EXIST(1002,"邮箱已存在"),
-    REGISTER_MOBILE_HAS_EXIST(1003,"手机号已存在"),
-    ID_HAS_EXIST(1004,"ID已存在");;
-
-
+    REGISTER_MOBILE_HAS_EXIST(1003,"手机号已存在");
 
     public Integer getCode() {
         return code;
