@@ -25,8 +25,11 @@ public enum ResultCode {
     MULTI_INSERT_FAILED(1012,"多选题添加失败"),
     TORF_INSERT_FAILED(1013,"判断题添加失败"),
 
-    PAPER_CREATE_FAILED(1014,"试卷生成失败");
+    PAPER_CREATE_FAILED(1014,"试卷生成失败"),
 
+
+
+    ID_HAS_EXIST(2001,"ID已存在");
 
     public Integer getCode() {
         return code;

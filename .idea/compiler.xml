@@ -10,6 +10,7 @@
         <module name="courseTeacher" />
         <module name="db-service" />
         <module name="student" />
+        <module name="dbservice" />
         <module name="gateway" />
         <module name="chat" />
         <module name="test" />
@@ -26,6 +27,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="courseTeacher (1)" target="1.8" />
+      <module name="student" target="1.8" />
       <module name="teacher" target="1.8" />
     </bytecodeTargetLevel>
   </component>

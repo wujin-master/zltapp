@@ -81,8 +81,8 @@ public class PresonTeacherController {
 
     @RequestMapping(value="/findAll",method={RequestMethod.GET})//获取所有老师
     @ResponseBody
-    public List<EduTeacher> queryUsers(){
-        return teacherService.findAllTeacher();
+    public Result queryUsers(){
+        return Result.success(teacherService.findAllTeacher());
     }
 
     @PostMapping(value="/updatePasswd")//修改密码

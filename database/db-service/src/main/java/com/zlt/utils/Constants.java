@@ -8,4 +8,5 @@ public class Constants {
     public static final int REGISTER_EMAIL_HAS_EXIST = 3;
     public static final int REGISTER_MOBILE_HAS_EXIST = 4;
     public static final int REGISTER_SUCCESS = 5;
+    public static final int ID_HAS_EXIST = 10;
 }

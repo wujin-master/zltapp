@@ -45,4 +45,5 @@ public class Result<T> {
     public static Result success(){return new Result(ResultCode.SUCCESS);}
     public static Result success(Object data){return new Result(ResultCode.SUCCESS,data);}
     public static Result failure(ResultCode resultCode){return new Result(resultCode);}
+    public static Result failureById(ResultCode resultCode){return new Result(resultCode);}
 }
