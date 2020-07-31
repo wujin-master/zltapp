@@ -3,14 +3,12 @@ package com.zlt.controller;
 import com.zlt.exception.EduException;
 import com.zlt.pojo.EduUser;
 import com.zlt.service.EduUserService;
-import com.zlt.utils.*;
-import lombok.extern.slf4j.Slf4j;
+import com.zlt.utils.MD5Util;
+import com.zlt.utils.Result;
+import com.zlt.utils.ResultCode;
+import com.zlt.utils.UUIDUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("user")
@@ -49,31 +47,31 @@ public class EduUserController {
     }
 
     @PostMapping("/validateRegister")
-        @ResponseBody
-        public Result Register(@RequestBody EduUser eduUser){
-            EduUser eduUser1 = null;
-            EduUser eduUser2 = null;
-            if(eduUser.getUserEmail()!=null){
-                eduUser1 = eduUserService.findByEmail(eduUser.getUserEmail());
-            }
-            else{
-                eduUser2 = eduUserService.findByMobile(eduUser.getUserMobile());
-            }
-            if(eduUser1 != null){
-                return Result.failure(ResultCode.REGISTER_EMAIL_HAS_EXIST);
-            }
-            if(eduUser2 != null){
-                return Result.failure(ResultCode.REGISTER_EMAIL_HAS_EXIST);
-            }
-            //注册成功
-            //密码加盐加密入库
-            String password = MD5Util.setDBPwd(eduUser.getUserPassword(),salt);
-            eduUser.setUserId(UUIDUtil.getUUID());
-            eduUser.setUserPassword(password);
-            eduUserService.addUser(eduUser);
-            return Result.success();
+    @ResponseBody
+    public Result Register(@RequestBody EduUser eduUser){
+        EduUser eduUser1 = null;
+        EduUser eduUser2 = null;
+        if(eduUser.getUserEmail()!=null){
+            eduUser1 = eduUserService.findByEmail(eduUser.getUserEmail());
         }
-        //修改密码
+        else{
+            eduUser2 = eduUserService.findByMobile(eduUser.getUserMobile());
+        }
+        if(eduUser1 != null){
+            return Result.failure(ResultCode.REGISTER_EMAIL_HAS_EXIST);
+        }
+        if(eduUser2 != null){
+            return Result.failure(ResultCode.REGISTER_EMAIL_HAS_EXIST);
+        }
+        //注册成功
+        //密码加盐加密入库
+        String password = MD5Util.setDBPwd(eduUser.getUserPassword(),salt);
+        eduUser.setUserId(UUIDUtil.getUUID());
+        eduUser.setUserPassword(password);
+        eduUserService.addUser(eduUser);
+        return Result.success();
+    }
+    //修改密码
     @PostMapping(value="/updatePasswd")
     @ResponseBody
     public Result upDateTeacherPasswd(@RequestBody EduUser eduUser){
@@ -120,11 +118,5 @@ public class EduUserController {
 //        }
 //        return Result.success();
 //    }
-
-
-
-
-
-
 
 }

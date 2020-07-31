@@ -2,15 +2,14 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="teacher (1)" />
         <module name="courseTeacher" />
         <module name="db-service" />
         <module name="student" />
-        <module name="dbservice" />
         <module name="gateway" />
         <module name="chat" />
         <module name="test" />
@@ -20,6 +19,8 @@
         <module name="dbservice" />
         <module name="dbinterface" />
         <module name="presonTeacher" />
+        <module name="presonStudent" />
+        <module name="task" />
         <module name="eureka" />
         <module name="common" />
         <module name="db-interface" />
@@ -29,6 +30,7 @@
       <module name="courseTeacher (1)" target="1.8" />
       <module name="student" target="1.8" />
       <module name="teacher" target="1.8" />
+      <module name="teacher (1)" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -49,9 +51,11 @@
       <module name="eureka" options="-parameters" />
       <module name="exam" options="-parameters" />
       <module name="gateway" options="-parameters" />
+      <module name="presonStudent" options="-parameters" />
       <module name="presonTeacher" options="-parameters" />
       <module name="proson" options="-parameters" />
       <module name="student" options="-parameters" />
+      <module name="task" options="-parameters" />
       <module name="teacher" options="-parameters" />
       <module name="teacher (1)" options="-parameters" />
       <module name="test" options="-parameters" />

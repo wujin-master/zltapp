@@ -3,11 +3,10 @@ package com.zlt;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-
-@SpringBootApplication
 @EnableDiscoveryClient
-public class ProsenalStudentApplication {
+@SpringBootApplication
+public class presonalStudentApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ProsenalStudentApplication.class,args);
+        SpringApplication.run(presonalStudentApplication.class,args);
     }
 }
