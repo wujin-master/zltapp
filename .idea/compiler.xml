@@ -12,7 +12,6 @@
         <module name="student" />
         <module name="gateway" />
         <module name="chat" />
-        <module name="test" />
         <module name="courseStudent" />
         <module name="ExamStudent" />
         <module name="ExamTeacher" />
@@ -31,6 +30,7 @@
       <module name="student" target="1.8" />
       <module name="teacher" target="1.8" />
       <module name="teacher (1)" target="1.8" />
+      <module name="test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
