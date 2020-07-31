@@ -18,7 +18,7 @@ public class EduPaperSingleServiceImpl implements EduPaperSingleService {
     }
 
     @Override
-    public EduPaperSingle findPaperSingleById(String id) {
+    public List<EduPaperSingle> findPaperSingleById(String id) {
         return eduPaperSingleMapper.findPaperSingleById(id);
     }
 

@@ -19,7 +19,7 @@ public class PaperTorfServiceImpl implements PaperTorfService {
     }
 
     @Override
-    public EduPapertorf findPaperTorfById(String id) {
+    public List<EduPapertorf> findPaperTorfById(String id) {
         return paperTorfMapper.findPaperTorfById(id);
     }
 

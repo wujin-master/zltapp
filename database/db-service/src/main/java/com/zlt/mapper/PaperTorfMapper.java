@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 public interface PaperTorfMapper {
     List<EduPapertorf> findAllPaperTorf();
-    EduPapertorf findPaperTorfById(String id);
+    List<EduPapertorf> findPaperTorfById(String id);
     int addPaperTorf(EduPapertorf eduPapertorf);
     int updatePaperTorf(EduPapertorf eduPapertorf);
     int deletePaperTorf(String id);

@@ -9,14 +9,15 @@
         <module name="teacher (1)" />
         <module name="courseTeacher" />
         <module name="db-service" />
-        <module name="dbservice" />
         <module name="student" />
         <module name="gateway" />
         <module name="chat" />
         <module name="test" />
         <module name="courseStudent" />
+        <module name="ExamStudent" />
+        <module name="ExamTeacher" />
+        <module name="dbservice" />
         <module name="dbinterface" />
-        <module name="exam" />
         <module name="presonTeacher" />
         <module name="eureka" />
         <module name="common" />
@@ -30,6 +31,8 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ExamStudent" options="-parameters" />
+      <module name="ExamTeacher" options="-parameters" />
       <module name="chat" options="-parameters" />
       <module name="common" options="-parameters" />
       <module name="course" options="-parameters" />

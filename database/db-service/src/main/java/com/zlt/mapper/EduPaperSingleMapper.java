@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface EduPaperSingleMapper {
     public List<EduPaperSingle> findAll();
-    public EduPaperSingle findPaperSingleById(String id);
+    public List<EduPaperSingle> findPaperSingleById(String id);
     public int addPaperSingle(EduPaperSingle paperSingle);
     public int deletePaperSingleById(String id);
     public int updatePaperSingle(EduPaperSingle paperSingle);

@@ -19,7 +19,7 @@ public class PaperMultiServiceImpl implements PaperMultiService {
     }
 
     @Override
-    public EduPapermulti findPaperMultiById(String id) {
+    public List<EduPapermulti> findPaperMultiById(String id) {
         return paperMultiMapper.findPaperMultiById(id);
     }
 

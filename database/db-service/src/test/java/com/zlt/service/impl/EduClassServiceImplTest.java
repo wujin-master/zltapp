@@ -10,6 +10,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -53,5 +56,13 @@ public class EduClassServiceImplTest {
     public void findById() {
         int result = eduClassService.deleteClass("123456");
         Assert.assertEquals(1,result);
+    }
+    @Test
+    public void Test(){
+        Date day=new Date();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String days = "2020-07-31 11:36:07.536";
+        System.out.println(day);
+        //System.out.println(df.format(day).compareTo(df.format(days)));
     }
 }

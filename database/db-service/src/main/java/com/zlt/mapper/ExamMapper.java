@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 public interface ExamMapper {
 
-    List<EduExam> findAllExam();
+    List<EduExam> findAllExam(String id);
     EduExam findExamByExamId(String examId);
     int addExam(EduExam eduExam);
     int updateExam(EduExam eduExam);

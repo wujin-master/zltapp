@@ -17,7 +17,16 @@ public enum ResultCode {
     REGISTER_MOBILE_HAS_EXIST(1003,"手机号已存在"),
     USER_NOT_EXIST(1004,"用户不存在"),
     USER_DELETE_ERROR(1005,"用户删除失败"),
-    USER_UPDATE_ERROR(1006,"用户更新失败");
+    USER_UPDATE_ERROR(1006,"用户更新失败"),
+
+    SET_EXAM_FAILED(1010,"设置考试失败"),
+
+    SINGLE_INSERT_FAILED(1011,"单选题添加失败"),
+    MULTI_INSERT_FAILED(1012,"多选题添加失败"),
+    TORF_INSERT_FAILED(1013,"判断题添加失败"),
+
+    PAPER_CREATE_FAILED(1014,"试卷生成失败");
+
 
     public Integer getCode() {
         return code;
