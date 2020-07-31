@@ -26,8 +26,8 @@ public class CourseController {
     //课程查找
     @PostMapping("/findCourse")
     @ResponseBody
-    public EduCourse findCourse(String eduCourseId){
-        return eduCourseService.findById(eduCourseId);
+    public Result findCourse(String eduCourseId){
+        return Result.success(eduCourseService.findById(eduCourseId));
     }
 
     //课程修改

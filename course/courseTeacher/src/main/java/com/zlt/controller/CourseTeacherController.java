@@ -36,22 +36,22 @@ public class CourseTeacherController {
     //根据教师id查课表
     @RequestMapping(value="/findCoursesByTeId",method={RequestMethod.GET})
     @ResponseBody
-    public List<EduTeacherCourse> findCoursesByTeId(String tid){
-        return teacherCourseService.findByTeacherId(tid);
+    public Result findCoursesByTeId(String tid){
+        return Result.success(teacherCourseService.findByTeacherId(tid));
     }
 
     //根据课表id查教师
     @RequestMapping(value="/findTeachersByCoId",method={RequestMethod.GET})
     @ResponseBody
-    public List<EduTeacherCourse> findTeachersByCoId(String cid){
-        return teacherCourseService.findByCourseId(cid);
+    public Result findTeachersByCoId(String cid){
+        return Result.success(teacherCourseService.findByCourseId(cid));
     }
 
     //根据教师id和课程id删除关系
     @PostMapping("/delTeacherCourse")
     @ResponseBody
-    public int delTeacherCourse(String tid,String cid){
-            return teacherCourseService.deleteTeacherCourse(tid,cid);
+    public Result delTeacherCourse(String tid,String cid){
+            return Result.success(teacherCourseService.deleteTeacherCourse(tid,cid));
     }
 
 }
