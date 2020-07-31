@@ -3,31 +3,30 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <!--映射文件与接口的对应关系-->
-<mapper namespace="com.zlt.mapper.TeacherCourseMapper">
+<mapper namespace="com.zlt.mapper.EduUserExamMapper">
 
-    <select id="findByTeacherId" resultType="com.zlt.pojo.EduTeacherCourse" parameterType="java.lang.String">
-        select * from edu_teacherCourse where userId = #{userId}
+    <select id="findExamByUserId" resultType="com.zlt.pojo.EduUserExam" parameterType="java.lang.String">
+        select * from edu_usrExam where userId = #{userId}
     </select>
 
-    <select id="findByCourseId" resultType="com.zlt.pojo.EduTeacherCourse" parameterType="java.lang.String">
+    <select id="findUserByExamId" resultType="com.zlt.pojo.EduUserExam" parameterType="java.lang.String">
         select *
-        from edu_teacherCourse
-        where courseId = #{courseId}
+        from edu_usrExam
+        where examId = #{examId}
     </select>
 
-    <insert id="addUserCourse" parameterType="com.zlt.pojo.EduTeacherCourse">
-        insert into edu_teacherCourse
+    <insert id="addUserExam" parameterType="com.zlt.pojo.EduUserExam">
+        insert into edu_usrExam
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
                 id,
             </if>
-            <if test="teacherId != null">
-                teacherId,
+            <if test="userId != null">
+                userId,
             </if>
-            <if test="courseId != null">
-                courseId,
+            <if test="examId != null">
+                examId,
             </if>
-
             <if test="reverse1 != null">
                 reverse1,
             </if>
@@ -39,11 +38,11 @@
             <if test="id != null">
                 #{id},
             </if>
-            <if test="teacherId != null">
-                #{teacherId},
+            <if test="userId != null">
+                #{userId},
             </if>
-            <if test="courseId != null">
-                #{courseId},
+            <if test="examId != null">
+                #{examId},
             </if>
             <if test="reverse1 != null">
                 #{reverse1},
@@ -54,15 +53,15 @@
         </trim>
     </insert>
 
-    <update id="updateTeacherCourse" parameterType="com.zlt.pojo.EduTeacherCourse">
-        update edu_teacherCourse
+    <update id="updUserExam" parameterType="com.zlt.pojo.EduUserExam">
+        update edu_usrExam
         <set>
             <trim>
-                <if test="teacherId != null">
-                    teacherId = #{teacherId},
+                <if test="userId != null">
+                    userId = #{userId},
                 </if>
-                <if test="courseId != null">
-                    courseId = #{courseId},
+                <if test="examId != null">
+                    examId = #{examId},
                 </if>
                 <if test="reverse1 != null">
                     reverse1 = #{reverse1},
@@ -75,15 +74,9 @@
         where id = #{id}
     </update>
 
-    <delete id="deleteTeacherCourse" parameterType="java.lang.String">
-        delete from edu_teacherCourse
-        where teacherId = #{teacherId} and courseId = #{courseId}
-    </delete>
-
-    <delete id="deleteTeacherCourseById" parameterType="java.lang.String">
-        delete from edu_teacherCourse
+    <delete id="delUserExam" parameterType="java.lang.String">
+        delete from edu_usrExam
         where id = #{id}
     </delete>
-
 
 </mapper>

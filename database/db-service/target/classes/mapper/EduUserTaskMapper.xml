@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--映射文件与接口的对应关系-->
+<mapper namespace="com.zlt.mapper.EduUserTaskMapper">
+
+    <select id="findTaskByUserId" resultType="com.zlt.pojo.EduUserTask" parameterType="java.lang.String">
+        select * from edu_usrTask where userId = #{userId}
+    </select>
+
+    <select id="findUserByTaskId" resultType="com.zlt.pojo.EduUserTask" parameterType="java.lang.String">
+        select *
+        from edu_usrTask
+        where taskId = #{taskId}
+    </select>
+
+    <insert id="addUserTask" parameterType="com.zlt.pojo.EduUserTask">
+        insert into edu_usrTask
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="userId != null">
+                userId,
+            </if>
+            <if test="taskId != null">
+                taskId,
+            </if>
+            <if test="reverse1 != null">
+                reverse1,
+            </if>
+            <if test="reverse2 != null">
+                reverse2,
+            </if>
+        </trim>
+        <trim prefix="value (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="userId != null">
+                #{userId},
+            </if>
+            <if test="taskId != null">
+                #{taskId},
+            </if>
+            <if test="reverse1 != null">
+                #{reverse1},
+            </if>
+            <if test="reverse2 != null">
+                #{reverse2},
+            </if>
+        </trim>
+    </insert>
+
+
+</mapper>
