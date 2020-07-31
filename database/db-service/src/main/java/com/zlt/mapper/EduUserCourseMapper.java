@@ -6,10 +6,12 @@ import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 @Mapper
-public interface EduUserCourseMapper {
+public interface EduUserCourseMapper{
     int addUserCourse(EduUserCourse eduUserCourse);
     List<EduUserCourse> findByUserId(String id);
     List<EduUserCourse> findByCourseId(String id);
+    EduUserCourse findUserCourse(String userId,String courseId);
     int updateUserCourse(EduUserCourse eduUserCourse);
-    int deleteUserCourse(String id);
+    int deleteUserCourseById(String id);
+    int deleteUserCourse(String userId,String courseId);
 }

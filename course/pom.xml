@@ -12,11 +12,34 @@
     <artifactId>course</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>student</module>
-        <module>courseTeacher</module>
         <module>courseTeacher</module>
         <module>courseStudent</module>
     </modules>
+
+    <dependencies>
+        <!-- web启动器 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- eureka客户端 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <!-- springboot提供微服务检测接口，默认对外提供几个接口 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!--hystrix-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <version>2.1.0.RELEASE</version>
+        </dependency>
+
+    </dependencies>
 
 
 </project>

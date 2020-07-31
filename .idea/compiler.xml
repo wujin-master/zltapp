@@ -6,19 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="teacher (1)" />
-        <module name="db-service" />
-        <module name="dbservice" />
-        <module name="courseTeacher" />
-        <module name="gateway" />
-        <module name="chat" />
-        <module name="test" />
-        <module name="courseStudent" />
         <module name="dbinterface" />
+        <module name="gateway" />
+        <module name="dbservice" />
+        <module name="test" />
         <module name="presonTeacher" />
+        <module name="chat" />
         <module name="eureka" />
-        <module name="common" />
+        <module name="courseStudent" />
+        <module name="courseTeacher" />
         <module name="db-interface" />
+        <module name="db-service" />
+        <module name="teacher (1)" />
+        <module name="common" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

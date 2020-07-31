@@ -15,6 +15,12 @@
         where courseId = #{courseId}
     </select>
 
+    <select id="findUserCourse" resultType="com.zlt.pojo.EduUserCourse" parameterType="java.lang.String">
+        select *
+        from edu_usrCou
+        where userId = #{userId}   and courseId = #{courseId}
+    </select>
+
     <insert id="addUserCourse" parameterType="com.zlt.pojo.EduUserCourse">
         insert into edu_usrCou
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -89,12 +95,15 @@
                 </if>
             </trim>
         </set>
-        where id = #{id}
+        where id = #{id} and
     </update>
 
-    <delete id="deleteUserCourse" parameterType="java.lang.String">
+    <delete id="deleteUserCourseById" parameterType="java.lang.String">
         delete from edu_usrCou
         where id = #{id}
     </delete>
-
+    <delete id="deleteUserCourse" parameterType="java.lang.String">
+        delete from edu_usrCou
+        where userId = #{userId} and courseId = #{courseId}
+    </delete>
 </mapper>

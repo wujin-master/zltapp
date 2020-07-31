@@ -28,12 +28,22 @@ public class EduUserCourseServiceImpl implements EduUserCourseService {
     }
 
     @Override
+    public EduUserCourse findUserCourse(String userId,String courseId) {
+        return eduUserCourseMapper.findUserCourse(userId,courseId);
+    }
+
+    @Override
     public int updateUserCourse(EduUserCourse eduUserCourse) {
         return eduUserCourseMapper.updateUserCourse(eduUserCourse);
     }
 
     @Override
-    public int deleteUserCourse(String id) {
-        return eduUserCourseMapper.deleteUserCourse(id);
+    public int deleteUserCourse(String uid,String cid) {
+        return eduUserCourseMapper.deleteUserCourse(uid,cid);
+    }
+
+    @Override
+    public int deleteUserCourseById(String id) {
+        return eduUserCourseMapper.deleteUserCourseById(id);
     }
 }

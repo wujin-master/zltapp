@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--映射文件与接口的对应关系-->
+<mapper namespace="com.zlt.mapper.TeacherCourseMapper">
+
+    <select id="findByTeacherId" resultType="com.zlt.pojo.EduTeacherCourse" parameterType="java.lang.String">
+        select * from edu_teacherCourse where userId = #{userId}
+    </select>
+
+    <select id="findByCourseId" resultType="com.zlt.pojo.EduTeacherCourse" parameterType="java.lang.String">
+        select *
+        from edu_teacherCourse
+        where courseId = #{courseId}
+    </select>
+
+    <insert id="addUserCourse" parameterType="com.zlt.pojo.EduTeacherCourse">
+        insert into edu_teacherCourse
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="teacherId != null">
+                teacherId,
+            </if>
+            <if test="courseId != null">
+                courseId,
+            </if>
+
+            <if test="reverse1 != null">
+                reverse1,
+            </if>
+            <if test="reverse2 != null">
+                reverse2,
+            </if>
+        </trim>
+        <trim prefix="value (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="teacherId != null">
+                #{teacherId},
+            </if>
+            <if test="courseId != null">
+                #{courseId},
+            </if>
+            <if test="reverse1 != null">
+                #{reverse1},
+            </if>
+            <if test="reverse2 != null">
+                #{reverse2},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateTeacherCourse" parameterType="com.zlt.pojo.EduTeacherCourse">
+        update edu_teacherCourse
+        <set>
+            <trim>
+                <if test="teacherId != null">
+                    teacherId = #{teacherId},
+                </if>
+                <if test="courseId != null">
+                    courseId = #{courseId},
+                </if>
+                <if test="reverse1 != null">
+                    reverse1 = #{reverse1},
+                </if>
+                <if test="reverse2 != null">
+                    reverse2 = #{reverse2},
+                </if>
+            </trim>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteTeacherCourse" parameterType="java.lang.String">
+        delete from edu_teacherCourse
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteTeacherCourseById" parameterType="java.lang.String">
+        delete from edu_teacherCourse
+        where id = #{id}
+    </delete>
+
+
+    <delete id="deleteTeacherCourse" parameterType="java.lang.String">
+        delete from edu_teacherCourse
+        where teacherId = #{teacherId} and courseId = #{courseId}
+    </delete>
+
+</mapper>
