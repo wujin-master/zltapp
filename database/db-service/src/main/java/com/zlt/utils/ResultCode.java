@@ -14,7 +14,10 @@ public enum ResultCode {
     LOGIN_PASSWORD_ERROR(1000,"登录密码错误"),
     USERNAME_NOT_EXIST(1001,"手机号或邮箱不存在"),
     REGISTER_EMAIL_HAS_EXIST(1002,"邮箱已存在"),
-    REGISTER_MOBILE_HAS_EXIST(1003,"手机号已存在");
+    REGISTER_MOBILE_HAS_EXIST(1003,"手机号已存在"),
+
+
+    ID_HAS_EXIST(2001,"ID已存在");
 
     public Integer getCode() {
         return code;

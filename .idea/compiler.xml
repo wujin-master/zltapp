@@ -6,19 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="dbinterface" />
-        <module name="gateway" />
-        <module name="dbservice" />
-        <module name="test" />
-        <module name="presonTeacher" />
-        <module name="chat" />
-        <module name="eureka" />
-        <module name="courseStudent" />
-        <module name="courseTeacher" />
-        <module name="db-interface" />
-        <module name="db-service" />
         <module name="teacher (1)" />
+        <module name="courseTeacher" />
+        <module name="db-service" />
+        <module name="dbservice" />
+        <module name="gateway" />
+        <module name="chat" />
+        <module name="test" />
+        <module name="courseStudent" />
+        <module name="dbinterface" />
+        <module name="exam" />
+        <module name="presonTeacher" />
+        <module name="eureka" />
         <module name="common" />
+        <module name="db-interface" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -41,6 +42,7 @@
       <module name="dbinterface" options="-parameters" />
       <module name="dbservice" options="-parameters" />
       <module name="eureka" options="-parameters" />
+      <module name="exam" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="presonTeacher" options="-parameters" />
       <module name="proson" options="-parameters" />
