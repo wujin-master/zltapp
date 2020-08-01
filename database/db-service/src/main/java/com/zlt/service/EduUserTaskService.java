@@ -6,8 +6,9 @@ import java.util.List;
 
 public interface EduUserTaskService {
     List<EduUserTask> findTaskByUserId(String id);
-    List<EduUserTask> findUserByExamId(String id);
+    List<EduUserTask> findUserByTaskId(String id);
     int addUserTask(EduUserTask eduUserTask);
     int delUserTask(EduUserTask eduUserTask);
     int updUserTask(EduUserTask eduUserTask);
+    EduUserTask findByUITI(String userId,String taskId);
 }

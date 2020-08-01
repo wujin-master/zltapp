@@ -10,6 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>task</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>taskStudent</module>
+        <module>taskTeacher</module>
+    </modules>
+
     <dependencies>
         <!-- web启动器 -->
         <dependency>

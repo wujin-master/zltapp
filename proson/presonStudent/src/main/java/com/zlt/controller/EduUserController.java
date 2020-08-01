@@ -16,7 +16,7 @@ public class EduUserController {
     //目前是固定盐值
     private String salt = "4d5e6f";
 
-    @Autowired
+    @Autowired(required = false)
     private EduUserService eduUserService;
 
     @PostMapping("/validateLogin")
@@ -57,11 +57,11 @@ public class EduUserController {
         else{
             eduUser2 = eduUserService.findByMobile(eduUser.getUserMobile());
         }
-        if(eduUser1 != null){
-            return Result.failure(ResultCode.REGISTER_EMAIL_HAS_EXIST);
-        }
-        if(eduUser2 != null){
-            return Result.failure(ResultCode.REGISTER_EMAIL_HAS_EXIST);
+        if(eduUser1 != null || eduUser2 != null){
+            if(eduUser1 != null)
+                return Result.failure(ResultCode.REGISTER_EMAIL_HAS_EXIST);
+            else
+                return Result.failure(ResultCode.REGISTER_MOBILE_HAS_EXIST);
         }
         //注册成功
         //密码加盐加密入库
@@ -74,7 +74,7 @@ public class EduUserController {
     //修改密码
     @PostMapping(value="/updatePasswd")
     @ResponseBody
-    public Result upDateTeacherPasswd(@RequestBody EduUser eduUser){
+    public Result upDateStudentPasswd(@RequestBody EduUser eduUser){
         EduUser eduUser1 =  eduUserService.findByMobile(eduUser.getUserMobile());
         //手机号不存在
         if(eduUser1 == null ){
@@ -109,14 +109,6 @@ public class EduUserController {
         return Result.success();
     }
 
-//    @PostMapping("/user_deletebyid/{id}")
-//    @ResponseBody
-//    public Result updateById(@PathVariable String id){
-//        int result = eduUserService.deleteUser(id);
-//        if(result != 1){
-//            return Result.failure(ResultCode.USER_DELETE_ERROR);
-//        }
-//        return Result.success();
-//    }
+
 
 }

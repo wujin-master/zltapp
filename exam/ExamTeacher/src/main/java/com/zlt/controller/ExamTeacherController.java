@@ -102,6 +102,10 @@ public class ExamTeacherController {
         else
             return Result.failure(ResultCode.PAPER_CREATE_FAILED);
     }
+//    @GetMapping("findAll")
+//    public Result findAll(){
+//        List<EduExam> eduExamList =
+//    }
 
     //教师往试卷里添加题目
     //组卷

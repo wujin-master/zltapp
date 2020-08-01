@@ -6,11 +6,15 @@ import com.zlt.service.EduCourseService;
 import com.zlt.utils.Result;
 import com.zlt.utils.ResultCode;
 import com.zlt.utils.UUIDUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("edu_course")
 public class CourseController {
+    @Autowired
     private EduCourseService eduCourseService;  //课程表管理
 
     //课程添加
@@ -20,6 +24,12 @@ public class CourseController {
         eduCourse.setCourseId(UUIDUtil.getUUID());
         eduCourseService.addCourse(eduCourse);
         return Result.success();
+    }
+    //课程查找
+    @GetMapping("/findAll")
+    public Result findAll(){
+        List<EduCourse> eduCourseList = eduCourseService.findAll();
+        return Result.success(eduCourseList);
     }
 
 

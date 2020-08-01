@@ -10,6 +10,7 @@ import com.zlt.utils.UUIDUtil;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("edu_teacherCourse")
@@ -52,6 +53,17 @@ public class CourseTeacherController {
     @ResponseBody
     public Result delTeacherCourse(String tid,String cid){
             return Result.success(teacherCourseService.deleteTeacherCourse(tid,cid));
+    }
+
+    @PostMapping("/addCouToCla")
+    @ResponseBody
+    public Result addCouToClas(@RequestBody Map<String,Object> map){
+        String classId = map.get("classId").toString();
+        List<Integer> courseIdList = (List<Integer>) map.get("courseIdList");
+        for(Integer courseId:courseIdList){
+
+        }
+        return Result.success();
     }
 
 }

@@ -77,7 +77,7 @@
 
     <delete id="deleteTeacherCourse" parameterType="java.lang.String">
         delete from edu_teacherCourse
-        where id = #{id}
+        where teacherId = #{teacherId} and courseId = #{courseId}
     </delete>
 
     <delete id="deleteTeacherCourseById" parameterType="java.lang.String">
@@ -85,10 +85,5 @@
         where id = #{id}
     </delete>
 
-
-    <delete id="deleteTeacherCourse" parameterType="java.lang.String">
-        delete from edu_teacherCourse
-        where teacherId = #{teacherId} and courseId = #{courseId}
-    </delete>
 
 </mapper>

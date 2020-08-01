@@ -35,7 +35,7 @@ public class ExamStudentController {
 
     //显示所有考试
     @GetMapping("/show_allExam/{id}")
-    public Result showExam(@PathVariable("ID") String id){
+    public Result showExam(@PathVariable("id") String id){
         List<EduUserExam> eduUserExamList = eduUserExamService.findExamByUserId(id);
         return Result.success(eduUserExamList);
     }

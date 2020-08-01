@@ -7,6 +7,6 @@ public class EduUserTask {
     private String id;
     private String userId;
     private String taskId;
-    private String reverse1;
+    private Integer score;
     private String reverse2;
 }

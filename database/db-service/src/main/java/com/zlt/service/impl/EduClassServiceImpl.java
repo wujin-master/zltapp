@@ -36,4 +36,9 @@ public class EduClassServiceImpl implements EduClassService {
     public EduClass findById(String id) {
         return null;
     }
+
+    @Override
+    public int batchDelete(List<Integer> idList) {
+        return eduClassMapper.batchDelete(idList);
+    }
 }

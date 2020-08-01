@@ -27,6 +27,14 @@ public enum ResultCode {
 
     PAPER_CREATE_FAILED(1014,"试卷生成失败"),
 
+    TASK_CREATE_FAILED(1015,"作业生成失败"),
+    SET_TASK_FAILED(1016,"作业发布失败"),
+
+    CLASS_BATCHDELETE_FAILED(1017,"班级批量删除失败"),
+    CLASS_DELETE_FAILED(1018,"班级删除失败"),
+
+    ADD_CLASS_FAILED(1019,"班级添加失败"),
+
 
 
     ID_HAS_EXIST(2001,"ID已存在");
