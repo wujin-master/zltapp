@@ -18,8 +18,8 @@ public class EduUserTaskServiceImpl implements EduUserTaskService {
     }
 
     @Override
-    public List<EduUserTask> findUserByExamId(String id) {
-        return eduUserTaskMapper.findUserByExamId(id);
+    public List<EduUserTask> findUserByTaskId(String id) {
+        return eduUserTaskMapper.findUserByTaskId(id);
     }
 
     @Override
@@ -36,4 +36,10 @@ public class EduUserTaskServiceImpl implements EduUserTaskService {
     public int updUserTask(EduUserTask eduUserTask) {
         return eduUserTaskMapper.updUserTask(eduUserTask);
     }
+
+    @Override
+    public EduUserTask findByUITI(String userId, String taskId) {
+        return eduUserTaskMapper.findByUITI(userId,taskId);
+    }
+
 }

@@ -18,6 +18,10 @@ zuul:
     prosenTeacher: /prosenTeacher/** # 个人中心-教师的映射路径
     courseStudent: /courseStudent/** # 课程管理-学生的映射路径
     courseTeacher: /courseTeacher/** # 课程管理-教师的映射路径
+    examStudent: /examStudent/**
+    examTeacher: /examTeacher/**
+    taskStudent: /taskStudent/**
+    taskTeacher: /taskTeacher/**
 #    communication: /chat/** # 微服务的映射路径
 #    person: /person/** # 微服务的映射路径
 eureka:

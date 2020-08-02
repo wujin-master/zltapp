@@ -1,5 +1,6 @@
 package com.zlt.service.impl;
 
+import com.zlt.mapper.EduTaskSingleMapper;
 import com.zlt.pojo.EduTaskSingle;
 import com.zlt.service.EduTaskSingleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,30 +10,30 @@ import java.util.List;
 @Service
 public class EduTaskSingleServiceImpl implements EduTaskSingleService {
     @Autowired(required = false)
-    EduTaskSingleService taskSingleService;
+    EduTaskSingleMapper eduTaskSingleMapper;
 
     @Override
     public List<EduTaskSingle> findAll() {
-        return taskSingleService.findAll();
+        return eduTaskSingleMapper.findAll();
     }
 
     @Override
-    public EduTaskSingle findEduTaskSingleById(String id) {
-        return taskSingleService.findEduTaskSingleById(id);
+    public List<EduTaskSingle> findEduTaskSingleById(String id) {
+        return eduTaskSingleMapper.findEduTaskSingleById(id);
     }
 
     @Override
     public int addEduTaskSingle(EduTaskSingle taskSingle) {
-        return taskSingleService.addEduTaskSingle(taskSingle);
+        return eduTaskSingleMapper.addEduTaskSingle(taskSingle);
     }
 
     @Override
     public int deleteEduTaskSingleById(String id) {
-        return taskSingleService.deleteEduTaskSingleById(id);
+        return eduTaskSingleMapper.deleteEduTaskSingleById(id);
     }
 
     @Override
     public int updateEduTaskSingle(EduTaskSingle taskSingle) {
-        return taskSingleService.updateEduTaskSingle(taskSingle);
+        return eduTaskSingleMapper.updateEduTaskSingle(taskSingle);
     }
 }

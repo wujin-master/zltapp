@@ -10,4 +10,5 @@ public interface EduClassService {
     int deleteClass(String id);
     int updateClass(EduClass eduClass);
     EduClass findById(String id);
+    int batchDelete(List<Integer> idList);
 }

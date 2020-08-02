@@ -9,7 +9,7 @@
     </select>
 
     <select id="findEduTaskSingleById" parameterType="java.lang.String" resultType="com.zlt.pojo.EduTaskSingle">
-        select * from edu_tasksingle where id = #{id}
+        select * from edu_tasksingle where taskId = #{taskId}
     </select>
 
     <insert id="addEduTaskSingle" parameterType="com.zlt.pojo.EduTaskSingle">

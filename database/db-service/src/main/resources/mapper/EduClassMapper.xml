@@ -76,6 +76,14 @@
         where classId = #{classId}
     </delete>
 
+    <delete id="batchDelete">
+        delete from edu_class
+        where classId IN
+        <foreach collection="list" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
+
 
 
 </mapper>

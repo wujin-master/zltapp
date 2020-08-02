@@ -19,6 +19,7 @@
         <module>exam</module>
         <module>course</module>
         <module>task</module>
+        <module>task</module>
     </modules>
 
     <parent>

@@ -1,5 +1,5 @@
 server:
-  port: 8086
+  port: 8089
 #端口
 #应用名称
 #eureka

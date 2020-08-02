@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface EduTaskSingleService {
     public List<EduTaskSingle> findAll();
-    public EduTaskSingle findEduTaskSingleById(String id);
+    public List<EduTaskSingle> findEduTaskSingleById(String id);
     public int addEduTaskSingle(EduTaskSingle taskSingle);
     public int deleteEduTaskSingleById(String id);
     public int updateEduTaskSingle(EduTaskSingle taskSingle);
