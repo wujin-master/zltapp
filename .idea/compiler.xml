@@ -10,16 +10,19 @@
         <module name="courseTeacher" />
         <module name="db-service" />
         <module name="student" />
+        <module name="liveinterface" />
         <module name="gateway" />
+        <module name="liveservice" />
+        <module name="taskStudent" />
         <module name="chat" />
         <module name="courseStudent" />
         <module name="ExamStudent" />
         <module name="ExamTeacher" />
         <module name="dbservice" />
+        <module name="taskTeacher" />
         <module name="dbinterface" />
         <module name="presonTeacher" />
         <module name="presonStudent" />
-        <module name="task" />
         <module name="eureka" />
         <module name="common" />
         <module name="db-interface" />
@@ -51,11 +54,16 @@
       <module name="eureka" options="-parameters" />
       <module name="exam" options="-parameters" />
       <module name="gateway" options="-parameters" />
+      <module name="live" options="-parameters" />
+      <module name="liveinterface" options="-parameters" />
+      <module name="liveservice" options="-parameters" />
       <module name="presonStudent" options="-parameters" />
       <module name="presonTeacher" options="-parameters" />
       <module name="proson" options="-parameters" />
       <module name="student" options="-parameters" />
       <module name="task" options="-parameters" />
+      <module name="taskStudent" options="-parameters" />
+      <module name="taskTeacher" options="-parameters" />
       <module name="teacher" options="-parameters" />
       <module name="teacher (1)" options="-parameters" />
       <module name="test" options="-parameters" />

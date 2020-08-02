@@ -5,7 +5,10 @@
 
 <mapper namespace="com.zlt.mapper.ChatInfoMapper">
     <select id="findChatInfoBySender" resultType="com.zlt.pojo.EduChatinfo" parameterType="java.lang.String">
-            select * from edu_chatinfo where sender =#{sender}
+            select * from edu_chatinfo where sender =#{sender} order by sendTime asc
+        </select>
+    <select id="findChatInfoByReceiver" resultType="com.zlt.pojo.EduChatinfo" parameterType="java.lang.String">
+            select * from edu_chatinfo where receiver =#{receiver}
         </select>
     <insert id="addChatInfo" parameterType="com.zlt.pojo.EduChatinfo" >
             INSERT INTO edu_chatinfo (id, sender, receiver, message, type, sendTime, reverse1, reverse2) VALUES (#{id}, #{sender}, #{receiver}, #{message}, #{type},#{sendTime}, #{reverse1}, #{reverse2})

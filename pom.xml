@@ -20,6 +20,7 @@
         <module>course</module>
         <module>task</module>
         <module>task</module>
+        <module>live</module>
     </modules>
 
     <parent>

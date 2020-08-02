@@ -8,5 +8,6 @@ import java.util.List;
 @Mapper
 public interface ChatInfoMapper {
     List<EduChatinfo> findChatInfoBySender(String sender);
+    List<EduChatinfo> findChatInfoByReceiver(String receiver);
     int addChatInfo(EduChatinfo eduChatinfo);
 }
