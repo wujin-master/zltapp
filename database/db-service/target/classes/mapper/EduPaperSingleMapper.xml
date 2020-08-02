@@ -9,7 +9,7 @@
     </select>
 
     <select id="findPaperSingleById" parameterType="java.lang.String" resultType="com.zlt.pojo.EduPaperSingle">
-        select * from edu_papersingle where id = #{id}
+        select * from edu_papersingle where paperId = #{paperId}
     </select>
 
     <insert id="addPaperSingle" parameterType="com.zlt.pojo.EduPaperSingle">

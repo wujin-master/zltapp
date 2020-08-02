@@ -10,6 +10,7 @@ import com.zlt.utils.ResultCode;
 import com.zlt.utils.UUIDUtil;
 import net.minidev.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -128,11 +129,11 @@ public class PresonTeacherController {
             return Result.success();
         else
             return Result.failure(ResultCode.ADD_CLASS_FAILED);
-
     }
 
     @PostMapping("/batchDeleteClass")
     @ResponseBody
+    @Transactional
     public Result batchDeleteClass(@RequestBody Map<String,Object> map){
         List<Integer> idList = (List<Integer>)map.get("delList");
         int result = eduClassService.batchDelete(idList);

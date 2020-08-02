@@ -3,10 +3,10 @@ package com.zlt.pojo;
 import lombok.Data;
 
 @Data
-public class EduUserExam {
+public class EduTeacherExam {
     private String id;
-    private String userId;
+    private String teacherId;
     private String examId;
-    private Integer score;
+    private String reverse1;
     private String reverse2;
 }

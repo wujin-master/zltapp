@@ -8,7 +8,10 @@ import com.zlt.utils.UUIDUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
@@ -27,6 +30,104 @@ public class TaskTeacherController {
     private EduUserCourseService eduUserCourseService;
     @Autowired(required = false)
     private EduUserTaskService eduUserTaskService;
+    @Autowired(required = false)
+    private EduTeacherTaskService eduTeacherTaskService;
+
+    //作业表增删改查
+    @GetMapping("/findAllTask")
+    public Result findAllTask(){
+        List<EduTask> eduTaskList = eduTaskService.findAll();
+        int count = eduTaskList.size();
+        if(eduTaskList != null) {
+            Map<String,Object> map = new HashMap<>();
+            map.put("eduTaskList",eduTaskList);
+            map.put("count",count);
+            return Result.success(map);
+        }
+        else
+            return Result.failure(ResultCode.TASK_FIND_FAILED);
+    }
+    @PostMapping("/deleteTask")
+    @ResponseBody
+    public Result deleteTask(@RequestBody String taskId){
+        int result = eduTaskService.deleteTask(taskId);
+        if(result == 1)
+            return Result.success();
+        else
+            return Result.failure(ResultCode.TASK_DELETE_FAILED);
+    }
+    @PostMapping("/updateTask")
+    @ResponseBody
+    public Result updateTask(@RequestBody EduTask eduTask){
+        int result = eduTaskService.updateTask(eduTask);
+        if (result == 1){
+            return Result.success();
+        }
+        else
+            return Result.failure(ResultCode.TASK_UPDATE_FAILED);
+    }
+    @PostMapping("/addTask")
+    @ResponseBody
+    public Result addTask(@RequestBody EduTask eduTask){
+        int result = eduTaskService.addTask(eduTask);
+        if (result == 1)
+            return Result.success();
+        else
+            return Result.failure(ResultCode.TASK_ADD_FAILED);
+    }
+
+    //教师-作业表增删改查
+    @GetMapping("/findAllTeacherTask/{teacherId}")
+    public Result findAllExam(@PathVariable("teacherId") String teacherId){
+        List<EduTeacherTask> eduTeacherTaskList = eduTeacherTaskService.findById(teacherId);
+        List<String> idList = eduTeacherTaskList.stream().map(e->e.getTaskId())
+                                .collect(Collectors.toList());
+        List<EduTask> eduTaskList = new ArrayList<>();
+        EduTask eduTask = null;
+        for(String id : idList){
+            eduTask = eduTaskService.findById(id);
+            eduTaskList.add(eduTask);
+        }
+        int count = eduTaskList.size();
+        Map<String,Object> map = new HashMap<>();
+        map.put("eduTaskList",eduTaskList);
+        map.put("count",count);
+        return Result.success(map);
+    }
+    @PostMapping("/deleteTeacherTask")
+    @ResponseBody
+    public Result deleteExam(@RequestBody Map<String,String> map){
+        String teacherId = map.get("teacherId");
+        String taskId = map.get("taskId");
+        int result = eduTeacherTaskService.deleteTeacherTask(teacherId,taskId);
+        if(result == 1)
+            return Result.success();
+        else
+            return Result.failure(ResultCode.TEACHERTASK_DELETE_FAILED);
+    }
+    @PostMapping("/updateTeacherTask")
+    @ResponseBody
+    public Result updateTeacherTask(@RequestBody EduTeacherTask eduTeacherTask){
+        int result = eduTeacherTaskService.updateTeacherTask(eduTeacherTask);
+        if (result == 1)
+            return Result.success();
+        else
+            return Result.failure(ResultCode.TEACHERTASK_UPDATE_FAILED);
+    }
+    @PostMapping("/addTeacherTask")
+    @ResponseBody
+    public Result addTeacherTask(@RequestBody EduTeacherTask eduTeacherTask){
+        int result = eduTeacherTaskService.addTeacherTask(eduTeacherTask);
+        if (result == 1)
+            return Result.success();
+        else
+            return Result.failure(ResultCode.TEACHERTASK_ADD_FAILED);
+    }
+
+//    @GetMapping("/showTasks/{teacherId}")
+//    public Result showTasks(@PathVariable("teacherId") String teacherId){
+//        int result = eduUserTaskService.f
+//    }
 
     //生成一份作业
     @PostMapping("/createTask")

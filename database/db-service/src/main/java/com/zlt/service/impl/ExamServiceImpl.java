@@ -17,8 +17,8 @@ public class ExamServiceImpl implements ExamService {
     private ExamMapper examMapper;
 
     @Override
-    public List<EduExam> findAllExam(String id){
-        return examMapper.findAllExam(id);
+    public List<EduExam> findAllExam(){
+        return examMapper.findAllExam();
     }
 
     @Override

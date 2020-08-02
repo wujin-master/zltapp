@@ -4,6 +4,7 @@ import com.sun.org.apache.regexp.internal.RE;
 import com.zlt.pojo.*;
 import com.zlt.service.*;
 import com.zlt.utils.Result;
+import com.zlt.utils.ResultCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -55,6 +56,7 @@ public class TaskStudentController {
         System.out.println(eduTaskmultiList);
         List<EduTaskTorf> eduTasktorfList = eduTaskTorfService.findByTaskId(taskId);
         System.out.println(eduTasktorfList);
+
         List<String> idSingle = eduTaskSingleList.stream().map(e->e.getSingleId())
                 .collect(Collectors.toList());
         List<String> idMulti = eduTaskmultiList.stream().map(e->e.getMultiId())
@@ -164,9 +166,16 @@ public class TaskStudentController {
 
     @PostMapping("/getScore")
     @ResponseBody
-    public Result getScore(@RequestBody Map<String,Object> map){
-        System.out.println(map.get("score"));
-        return Result.success();
+    public Result getScore(@RequestBody EduUserTask eduUserTask){
+        EduUserTask eduUserTask1 = eduUserTaskService.findByUITI(eduUserTask.getUserId(),eduUserTask.getTaskId());
+        eduUserTask.setId(eduUserTask1.getId());
+        int result = eduUserTaskService.updUserTask(eduUserTask);
+        if(result == 1){
+            return Result.success();
+        }
+        else
+            return Result.failure(ResultCode.SCORE_UPDATE_FAILED);
+
     }
 
 }

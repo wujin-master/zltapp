@@ -10,6 +10,10 @@ import com.zlt.utils.UUIDUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
+import static com.zlt.utils.Base64Util.GenerateImage;
+
 @RestController
 @RequestMapping("user")
 public class EduUserController {
@@ -109,6 +113,25 @@ public class EduUserController {
         return Result.success();
     }
 
+    //添加头像
+    @PostMapping("/addPortrait")
+    @ResponseBody
+    public Result addPortrait(@RequestBody Map<String,String> map){
+        String userId = map.get("userId");
+        System.out.println(userId);
+        String[] strArr = map.get("base64Data").split(",");
+        String uuid = UUIDUtil.getUUID();
+        String savePath = UUIDUtil.getUUID() + "." + strArr[0].replace("data:image/", "").replace(";base64", "");
+        if(GenerateImage(strArr[1], savePath)) {
+            //上传成功后，将url保存到数据库
+            EduUser eduUser = eduUserService.findById(userId);
+            eduUser.setUserPortrait("http://my.17f.club/" + savePath);
+            eduUserService.updateUser(eduUser);
+            return Result.success();
+        }
+        else
+            return Result.failure(ResultCode.SET_PORTRAIT_FAILED);
+    }
 
 
 }

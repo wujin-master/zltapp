@@ -7,7 +7,7 @@
             select * from edu_papermulti
         </select>
         <select id="findPaperMultiById" resultType="com.zlt.pojo.EduPapermulti" parameterType="java.lang.String">
-            select * from edu_papermulti where id=#{id}
+            select * from edu_papermulti where paperId=#{paperId}
         </select>
         <insert id="addPaperMulti" parameterType="com.zlt.pojo.EduPapermulti" >
             INSERT INTO edu_papermulti (id, paperId, multiId, createTime, updateTime, reserv1, reserv2) VALUES (#{id}, #{paperId}, #{multiId}, #{createTime}, #{updateTime}, #{reserv1}, #{reserv2})

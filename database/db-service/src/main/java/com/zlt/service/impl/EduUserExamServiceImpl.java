@@ -36,4 +36,9 @@ public class EduUserExamServiceImpl implements EduUserExamService {
     public int updUserExam(EduUserExam eduUserExam) {
         return eduUserExamMapper.updUserExam(eduUserExam);
     }
+
+    @Override
+    public EduUserExam findByUIEI(String userId, String examId) {
+        return eduUserExamMapper.findByUIEI(userId,examId);
+    }
 }

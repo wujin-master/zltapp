@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface ExamService {
 
-    List<EduExam> findAllExam(String id);
+    List<EduExam> findAllExam();
     EduExam findExamByExamId(String examId);
     int addExam(EduExam eduExam);
     int updateExam(EduExam eduExam);

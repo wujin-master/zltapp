@@ -9,4 +9,5 @@ public interface EduTaskService {
     int updateTask(EduTask eduTask);
     int deleteTask(String id);
     EduTask findById(String id);
+    List<EduTask> findAll();
 }
