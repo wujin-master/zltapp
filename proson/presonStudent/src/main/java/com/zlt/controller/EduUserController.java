@@ -75,6 +75,7 @@ public class EduUserController {
         eduUserService.addUser(eduUser);
         return Result.success();
     }
+
     //修改密码
     @PostMapping(value="/updatePasswd")
     @ResponseBody
