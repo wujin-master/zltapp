@@ -15,6 +15,7 @@ import javax.websocket.*;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
@@ -29,10 +30,13 @@ import java.util.concurrent.ConcurrentHashMap;
 public class chatService {
     private static EduUserService eduUserService;
     private static ChatInfoService chatInfoService;
+    //私人模式可能会存储相同的sender或者receiver
     private String receiverId;
+    //存放真实的接收者id
+    private String receiverId_1;
     private String userId;
     private Session session;//客户端与服务器端的会话：每个websocket客户端进来，都会有一个server对象
-    private EduUser eduUser;//存放当前连接着的实例信息
+    private EduUser eduUser;//....存放当前连接着的实例信息
     //内存中的数据结构——缓存：当前客户端的列表
     private static Map<String, ArrayList<Session>> clients = new ConcurrentHashMap<String,ArrayList<Session>>();
     private static Map<String, ArrayList<EduUser>> clients_user = new ConcurrentHashMap<String,ArrayList<EduUser>>();
@@ -45,18 +49,18 @@ public class chatService {
 
     @OnOpen
     public void onOpen(Session session, @PathParam(value="chatInfo") String chatInfo){
-        System.out.println(session);
-        System.out.println(chatInfo);
         String[] info = chatInfo.split("\\|");
         //消息类型 all：群聊  private：私聊
         String chatType = info[0];
         //实际上是接受者的id：班级或者用户id
         this.receiverId = info[1];
+        this.receiverId_1 = info[1];
         EduUser eduUser1 = eduUserService.findById(info[2]);
         System.out.println(eduUser1.getUserNickname()+":连接上线");
         this.userId = info[2];
         this.session = session;
         this.eduUser = eduUser1;
+
         session.setMaxTextMessageBufferSize(2000000);
         if(chatType.equals("all")){
             //群聊方式
@@ -80,14 +84,22 @@ public class chatService {
                 clients_user.put(receiverId, userList);
             }
             //创建会话集合后，发送上线信息到客户端
-            sendLoginMsg();
+            try {
+                sendLoginMsg();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             //更新的用户列表返回给所有客户端：head:userList,data:[{},{},{}]
-            sendUserList();
+            try {
+                sendUserList();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }else if(chatType.equals("private")){
             //私聊方式
             System.out.println("收到私聊信息");
@@ -107,7 +119,11 @@ public class chatService {
                 chatOnLine.setChatState("yes");
                 chatOnLine.setType("onLineState");
                 chatOnLine.setSender(userId);
-                sendOnlineState(chatOnLine);
+                try {
+                    sendOnlineState(chatOnLine);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }else{
                 //如果接受者id找不到会话，
                 if(clients.get(userId)!=null){
@@ -127,7 +143,11 @@ public class chatService {
                     chatOnLine.setChatState("yes");
                     chatOnLine.setType("onLineState");
                     chatOnLine.setSender(userId);
-                    sendOnlineState(chatOnLine);
+                    try {
+                        sendOnlineState(chatOnLine);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }else{
                     //如果userId和receiverId都找不到会话，就新建集合
                     System.out.println("单人在线");
@@ -144,15 +164,23 @@ public class chatService {
                     chatOnLine.setChatState("no");
                     chatOnLine.setType("onLineState");
                     chatOnLine.setSender(userId);
-                    sendOnlineState(chatOnLine);
+                    try {
+                        sendOnlineState(chatOnLine);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
             //创建会话集合后，发送上线信息到客户端
-            sendLoginMsg();
+            try {
+                sendLoginMsg();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    private void sendLoginMsg() {
+    private void sendLoginMsg() throws IOException {
         ChatMessage sendMessage = new ChatMessage();
         sendMessage.setSender(eduUser.getUserId());
         sendMessage.setSenderImg(eduUser.getUserPortrait());
@@ -167,7 +195,7 @@ public class chatService {
         for(Session session:clients.get(receiverId)){
             System.out.println("session信息");
             System.out.println(session);
-            session.getAsyncRemote().sendText(msg);
+            session.getBasicRemote().sendText(msg);
         }
         // //构建要返回的消息
         //EduChatinfo chatMessage = new EduChatinfo();
@@ -182,7 +210,7 @@ public class chatService {
         //创建要发送到客户端的信息对象
     }
 
-    private void sendUserList() {
+    private void sendUserList() throws IOException {
         ChatUserList chatUserList = new ChatUserList();
         chatUserList.setUserArrayList(clients_user.get(receiverId));
         chatUserList.setType("allUser");
@@ -190,16 +218,16 @@ public class chatService {
         String msg = JSON.toJSONString(chatUserList);
         //将对应会话Id里的用户群发
         for(Session session:clients.get(receiverId)){
-            session.getAsyncRemote().sendText(msg);
+            session.getBasicRemote().sendText(msg);
         }
     }
 
-    private void sendOnlineState(ChatOnLine chatOnLine){
+    private void sendOnlineState(ChatOnLine chatOnLine) throws IOException {
         String msg = JSON.toJSONString(chatOnLine);
         //将对应会话Id里的用户群发
         for(Session session:clients.get(receiverId)){
             System.out.println("发送在线信息");
-            session.getAsyncRemote().sendText(msg);
+            session.getBasicRemote().sendText(msg);
         }
     }
 
@@ -236,8 +264,10 @@ public class chatService {
 
     @OnMessage
     public void onMessage(String message){
+        System.out.println("onmessage");
+        System.out.println("接收者Id:" + receiverId);
+        System.out.println("发送者Id:" + userId);
         EduChatinfo chatMessage = new EduChatinfo();
-        System.out.println(eduUser.getUserNickname() + "发送了一张图片消息");
         //将收到的转为Json格式
         JSONObject jobj = JSON.parseObject(message);
         if(jobj.getString("type").equals("010")){
@@ -247,78 +277,69 @@ public class chatService {
             String savePath = UUIDUtil.getUUID() + "." + strArr[0].replace("data:image/", "").replace(";base64", "");
             GenerateImage(strArr[1], savePath);
             //设置数据库聊天记录对象
-            chatMessage.setSender(jobj.getString("sender"));
-            chatMessage.setReceiver(jobj.getString("receiver"));
+            chatMessage.setSender(userId);
+            chatMessage.setReceiver(receiverId_1);
             chatMessage.setMessage("http://my.17f.club/" + savePath);
             chatMessage.setType(jobj.getString("type"));
+            chatMessage.setSenderName(eduUser.getUserNickname());
+            chatMessage.setSenderImg(eduUser.getUserPortrait());
             chatMessage.setSendTime(new Timestamp(new Date().getTime()));
+            System.out.println(new Timestamp(new Date().getTime()));
             chatMessage.setId(UUIDUtil.getUUID());
             chatInfoService.addChatInfo(chatMessage);
             //设置要发送到客户端的信息对象
             ChatMessage sendMessage = new ChatMessage();
-            sendMessage.setSender(eduUser.getUserId());
+            sendMessage.setSender(userId);
             sendMessage.setSenderImg(eduUser.getUserPortrait());
-            sendMessage.setReceiver(jobj.getString("receiver"));
+            sendMessage.setReceiver(receiverId_1);
             sendMessage.setSenderName(eduUser.getUserNickname());
             sendMessage.setMessage("http://my.17f.club/" + savePath);
             sendMessage.setSendTime(new Timestamp(new Date().getTime()));
             sendMessage.setType(jobj.getString("type"));
-            sendAll(sendMessage);
+            try {
+                sendAll(sendMessage);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }else{
+            System.out.println("发送者id" + userId);
+            System.out.println("接收者id" + receiverId);
             //设置数据库聊天记录对象
-            chatMessage.setSender(jobj.getString("sender"));
-            chatMessage.setReceiver(jobj.getString("receiver"));
+            chatMessage.setSender(userId);
+            chatMessage.setReceiver(receiverId_1);
             chatMessage.setMessage(jobj.getString("message"));
             chatMessage.setType(jobj.getString("type"));
+            chatMessage.setSenderName(eduUser.getUserNickname());
+            chatMessage.setSenderImg(eduUser.getUserPortrait());
             chatMessage.setSendTime(new Timestamp(new Date().getTime()));
             chatMessage.setId(UUIDUtil.getUUID());
             chatInfoService.addChatInfo(chatMessage);
             //设置要发送到客户端的信息对象
             ChatMessage sendMessage = new ChatMessage();
-            sendMessage.setSender(eduUser.getUserId());
+            sendMessage.setSender(userId);
             sendMessage.setSenderImg(eduUser.getUserPortrait());
-            sendMessage.setReceiver(jobj.getString("receiver"));
+            sendMessage.setReceiver(receiverId_1);
             sendMessage.setSenderName(eduUser.getUserNickname());
             sendMessage.setMessage(jobj.getString("message"));
             sendMessage.setSendTime(new Timestamp(new Date().getTime()));
             sendMessage.setType(jobj.getString("type"));
-            sendAll(sendMessage);
+            try {
+                sendAll(sendMessage);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     //消息
     //返回：head:sendAll,data:{from:谁发的，info:消息本身}
-    private void sendAll(ChatMessage chatMessage) {
+    private void sendAll(ChatMessage chatMessage) throws IOException {
         String msg = JSON.toJSONString(chatMessage);
         //将对应会话Id里的用户群发
         for(Session session:clients.get(receiverId)){
-            session.getAsyncRemote().sendText(msg);
+            session.getBasicRemote().sendText(msg);
         }
     }
-    //{to:发送给谁，info：消息本身}
-    //返回：head:sendTo,data:{from:谁发的，info：消息本身}
-//    private void sendTo(String data) {
-//        //解析消息
-//        JSONObject jobj = JSONObject.parseObject(data);
-//        String toUser = jobj.getString("to");
-//        String info = jobj.getString("info");
-//        //构建消息对象
-//        SendMessage sendMsg = new SendMessage();
-//        sendMsg.setHead("sendTo");
-//        JSONObject jsonMsg = new JSONObject();
-//        jsonMsg.put("from",this.eduUser.getUserNickname());
-//        jsonMsg.put("info",info);
-//        sendMsg.setData(JSON.toJSONString(jsonMsg));
-//        //转成JSON字符串
-//        String outputMsg = JSON.toJSONString(sendMsg);
-//        //私发消息
-//        for(EduUser username:clients.keySet()){
-//            if(toUser.equals(username)){
-//                clients.get(username).getAsyncRemote().sendText(outputMsg);
-//                break;
-//            }
-//        }
-//    }
 
     @OnError
     public void onError(Throwable t){

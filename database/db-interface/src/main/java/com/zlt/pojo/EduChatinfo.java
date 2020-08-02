@@ -7,11 +7,29 @@ public class EduChatinfo {
   private String sender;
   private String receiver;
   private String message;
+  private String senderName;
+  private String senderImg;
   private String type;
   private java.sql.Timestamp sendTime;
   private String reverse1;
   private String reverse2;
 
+
+  public String getSenderName() {
+    return senderName;
+  }
+
+  public void setSenderName(String senderName) {
+    this.senderName = senderName;
+  }
+
+  public String getSenderImg() {
+    return senderImg;
+  }
+
+  public void setSenderImg(String senderImg) {
+    this.senderImg = senderImg;
+  }
 
   public String getId() {
     return id;
