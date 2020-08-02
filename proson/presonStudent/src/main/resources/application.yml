@@ -7,7 +7,7 @@ server:
 #数据库连接，连接池
 spring:
   application:
-    name: student
+    name: prosenStudent
   datasource:
     url: jdbc:mysql://139.9.34.248:2276/EduApp?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: EduApp

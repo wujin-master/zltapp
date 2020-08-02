@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("user")
+@RequestMapping("edu_user")
 public class EduUserController {
     //目前是固定盐值
     private String salt = "4d5e6f";

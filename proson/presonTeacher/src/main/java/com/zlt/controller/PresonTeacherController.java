@@ -76,7 +76,11 @@ public class PresonTeacherController {
     }
 
 
-
+//    @RequestMapping(value="/findAll",method={RequestMethod.GET})//获取所有老师
+//    @ResponseBody
+//    public List<EduTeacher> queryUsers(){
+//        return teacherService.findAllTeacher();
+//    }
 
 
     @RequestMapping(value="/findAll",method={RequestMethod.GET})//获取所有老师
