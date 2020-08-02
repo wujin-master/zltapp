@@ -9,6 +9,10 @@
         select * from edu_user where userId = #{userId}
     </select>
 
+    <select id="findByClassId" resultType="com.zlt.pojo.EduUser" parameterType="java.lang.String">
+        select * from edu_user where classId = #{classId}
+    </select>
+
     <select id="queryUsers" resultType="com.zlt.pojo.EduUser">
         select * from edu_user
     </select>

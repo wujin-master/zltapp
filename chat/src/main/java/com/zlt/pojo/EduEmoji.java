@@ -54,4 +54,14 @@ public class EduEmoji {
     this.reverse2 = reverse2;
   }
 
+  public EduEmoji(long id, String code, String urlMapper, String reverse1, String reverse2) {
+    this.id = id;
+    this.code = code;
+    this.urlMapper = urlMapper;
+    this.reverse1 = reverse1;
+    this.reverse2 = reverse2;
+  }
+
+  public EduEmoji() {
+  }
 }

@@ -19,6 +19,11 @@ public class ChatInfoServiceImpl implements ChatInfoService {
     }
 
     @Override
+    public List<EduChatinfo> findChatInfoByReceiver(String receiver) {
+        return chatInfoMapper.findChatInfoByReceiver(receiver);
+    }
+
+    @Override
     public int addChatInfo(EduChatinfo eduChatinfo) {
         return chatInfoMapper.addChatInfo(eduChatinfo);
     }

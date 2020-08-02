@@ -22,6 +22,7 @@ zuul:
     examTeacher: /examTeacher/**
     taskStudent: /taskStudent/**
     taskTeacher: /taskTeacher/**
+    live: /live/**
 #    communication: /chat/** # 微服务的映射路径
 #    person: /person/** # 微服务的映射路径
 eureka:

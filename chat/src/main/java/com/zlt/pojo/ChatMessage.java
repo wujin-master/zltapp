@@ -6,21 +6,11 @@ public class ChatMessage {
     private String id;
     private String sender;
     private String receiver;
+    private String senderName;
+    private String senderImg;
     private String message;
     private String type;
     private Timestamp sendTime;
-
-    public ChatMessage(String id, String sender, String receiver, String message, String type, Timestamp sendTime) {
-        this.id = id;
-        this.sender = sender;
-        this.receiver = receiver;
-        this.message = message;
-        this.type = type;
-        this.sendTime = sendTime;
-    }
-
-    public ChatMessage() {
-    }
 
     public String getId() {
         return id;
@@ -46,6 +36,22 @@ public class ChatMessage {
         this.receiver = receiver;
     }
 
+    public String getSenderName() {
+        return senderName;
+    }
+
+    public void setSenderName(String senderName) {
+        this.senderName = senderName;
+    }
+
+    public String getSenderImg() {
+        return senderImg;
+    }
+
+    public void setSenderImg(String senderImg) {
+        this.senderImg = senderImg;
+    }
+
     public String getMessage() {
         return message;
     }
@@ -68,5 +74,19 @@ public class ChatMessage {
 
     public void setSendTime(Timestamp sendTime) {
         this.sendTime = sendTime;
+    }
+
+    public ChatMessage(String id, String sender, String receiver, String senderName, String senderImg, String message, String type, Timestamp sendTime) {
+        this.id = id;
+        this.sender = sender;
+        this.receiver = receiver;
+        this.senderName = senderName;
+        this.senderImg = senderImg;
+        this.message = message;
+        this.type = type;
+        this.sendTime = sendTime;
+    }
+
+    public ChatMessage() {
     }
 }

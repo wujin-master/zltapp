@@ -15,7 +15,7 @@ import java.util.Map;
 import static com.zlt.utils.Base64Util.GenerateImage;
 
 @RestController
-@RequestMapping("user")
+@RequestMapping("edu_user")
 public class EduUserController {
     //目前是固定盐值
     private String salt = "4d5e6f";
