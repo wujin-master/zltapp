@@ -10,11 +10,13 @@ import com.zlt.utils.ResultCode;
 import com.zlt.utils.UUIDUtil;
 import net.minidev.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import static com.zlt.utils.Base64Util.GenerateImage;
 import java.util.UUID;
 
 
@@ -29,6 +31,26 @@ public class PresonTeacherController {
     private TeacherService teacherService;
     @Autowired(required = false)
     private EduClassService eduClassService;
+
+    //添加头像
+    @PostMapping("/addPortrait")
+    @ResponseBody
+    public Result addPortrait(@RequestBody Map<String,String> map){
+        String teacherId = map.get("teacherId");
+        System.out.println(teacherId);
+        String[] strArr = map.get("base64Data").split(",");
+        String uuid = UUIDUtil.getUUID();
+        String savePath = UUIDUtil.getUUID() + "." + strArr[0].replace("data:image/", "").replace(";base64", "");
+        if(GenerateImage(strArr[1], savePath)) {
+            //上传成功后，将url保存到数据库
+            EduTeacher eduTeacher = teacherService.findByTeacherId(teacherId);
+            eduTeacher.setTeacherPortrait("http://my.17f.club/" + savePath);
+            teacherService.updateTeacher(eduTeacher);
+            return Result.success();
+        }
+        else
+            return Result.failure(ResultCode.SET_PORTRAIT_FAILED);
+    }
 
     @PostMapping("/validateLogin")
     @ResponseBody
@@ -68,7 +90,7 @@ public class PresonTeacherController {
         else{
             eduTeacher2 = teacherService.findTeacherByMobile(eduteacher.getTeacherMobile());
         }
-        if(eduTeacher1 != null && eduTeacher2 != null){
+        if(eduTeacher1 != null || eduTeacher2 != null){
             if(eduTeacher1!=null)
                 return Result.failure(ResultCode.REGISTER_EMAIL_HAS_EXIST);
             else
@@ -128,11 +150,11 @@ public class PresonTeacherController {
             return Result.success();
         else
             return Result.failure(ResultCode.ADD_CLASS_FAILED);
-
     }
 
     @PostMapping("/batchDeleteClass")
     @ResponseBody
+    @Transactional
     public Result batchDeleteClass(@RequestBody Map<String,Object> map){
         List<Integer> idList = (List<Integer>)map.get("delList");
         int result = eduClassService.batchDelete(idList);

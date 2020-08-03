@@ -11,4 +11,5 @@ public interface EduUserExamMapper {
     int addUserExam(EduUserExam eduUserExam);
     int delUserExam(EduUserExam eduUserExam);
     int updUserExam(EduUserExam eduUserExam);
+    EduUserExam findByUIEI(String userId,String examId);
 }

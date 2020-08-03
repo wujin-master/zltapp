@@ -15,6 +15,7 @@ public class EduUser {
     private String userSchool;
     private String userSno;
     private Date createTime;
+    private String classId;
     private Date updateTime;
     private String reverse1;
     private String reverse2;
@@ -22,7 +23,7 @@ public class EduUser {
     public EduUser() {
     }
 
-    public EduUser(String userId, String userPortrait, String userNickname, String userMobile, String userEmail, String userPassword, String userSchool, String userSno, Date createTime, Date updateTime, String reverse1, String reverse2) {
+    public EduUser(String userId, String userPortrait, String userNickname, String userMobile, String userEmail, String userPassword, String userSchool, String userSno, Date createTime, String classId, Date updateTime, String reverse1, String reverse2) {
         this.userId = userId;
         this.userPortrait = userPortrait;
         this.userNickname = userNickname;
@@ -32,9 +33,18 @@ public class EduUser {
         this.userSchool = userSchool;
         this.userSno = userSno;
         this.createTime = createTime;
+        this.classId = classId;
         this.updateTime = updateTime;
         this.reverse1 = reverse1;
         this.reverse2 = reverse2;
+    }
+
+    public String getClassId() {
+        return classId;
+    }
+
+    public void setClassId(String classId) {
+        this.classId = classId;
     }
 
     public String getUserId() {

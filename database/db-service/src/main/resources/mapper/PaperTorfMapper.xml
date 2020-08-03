@@ -7,7 +7,7 @@
             select * from edu_papertorf
         </select>
     <select id="findPaperTorfById" resultType="com.zlt.pojo.EduPapertorf" parameterType="java.lang.String">
-            select * from edu_papertorf where id=#{id}
+            select * from edu_papertorf where paperId=#{paperId}
         </select>
     <insert id="addPaperTorf" parameterType="com.zlt.pojo.EduPapertorf" >
             INSERT INTO edu_papertorf (id, paperId, torfId, createTime, updateTime, reserv1, reserv2) VALUES (#{id}, #{paperId}, #{torfId}, #{createTime}, #{updateTime}, #{reserv1}, #{reserv2})

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--映射文件与接口的对应关系-->
+<mapper namespace="com.zlt.mapper.EduTeacherExamMapper">
+
+    <select id="findByTeacherId" resultType="com.zlt.pojo.EduTeacherExam" parameterType="java.lang.String">
+        select * from edu_teaExam where teacherId = #{teacherId}
+    </select>
+
+    <insert id="addTeacherExam" parameterType="com.zlt.pojo.EduTeacherExam">
+        insert into edu_teaExam
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="teacherId != null">
+                teacherId,
+            </if>
+            <if test="examId != null">
+                examId,
+            </if>
+            <if test="reverse1 != null">
+                reverse1,
+            </if>
+            <if test="reverse2 != null">
+                reverse2,
+            </if>
+        </trim>
+        <trim prefix="value (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="teacherId != null">
+                #{teacherId},
+            </if>
+            <if test="examId != null">
+                #{examId},
+            </if>
+            <if test="reverse1 != null">
+                #{reverse1},
+            </if>
+            <if test="reverse2 != null">
+                #{reverse2},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateTeacherExam" parameterType="com.zlt.pojo.EduTeacherExam">
+        update edu_teaExam
+        <set>
+            <trim>
+                <if test="teacherId != null">
+                    teacherId = #{teacherId},
+                </if>
+                <if test="examId != null">
+                    examId = #{examId},
+                </if>
+                <if test="reverse1 != null">
+                    reverse1 = #{reverse1},
+                </if>
+                <if test="reverse2 != null">
+                    reverse2 = #{reverse2},
+                </if>
+            </trim>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteTeacherExam" parameterType="java.lang.String">
+        delete from edu_teaExam
+        where teacherId = #{teacherId} and examId = #{examId}
+    </delete>
+
+
+</mapper>

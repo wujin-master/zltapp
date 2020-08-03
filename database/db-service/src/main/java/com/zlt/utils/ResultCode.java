@@ -34,6 +34,34 @@ public enum ResultCode {
     CLASS_DELETE_FAILED(1018,"班级删除失败"),
 
     ADD_CLASS_FAILED(1019,"班级添加失败"),
+    SET_PORTRAIT_FAILED(1020,"头像设置失败"),
+    SCORE_UPDATE_FAILED(1021,"分数修改失败"),
+
+    TEACHER_DELETE_FAILED(1022,"教师删除失败"),
+    TEACHER_UPDATE_FAILED(1023,"教师更新失败"),
+    TEACHER_ADD_FAILED(1024,"教师添加失败"),
+    TEACHER_FIND_FAILED(1025,"教师信息查找失败"),
+
+    TEACHEREXAM_DELETE_FAILED(1026,"教师考试删除失败"),
+    TEACHEREXAM_UPDATE_FAILED(1027,"教师考试更新失败"),
+    TEACHEREXAM_ADD_FAILED(1028,"教师考试添加失败"),
+    TEACHEREXAM_FIND_FAILED(1029,"教师考试信息查找失败"),
+
+    TEACHERTASK_DELETE_FAILED(1030,"教师作业删除失败"),
+    TEACHERTASK_UPDATE_FAILED(1031,"教师作业更新失败"),
+    TEACHERTASK_ADD_FAILED(1032,"教师作业添加失败"),
+    TEACHERTASK_FIND_FAILED(1033,"教师作业信息查找失败"),
+
+    TASK_DELETE_FAILED(1034,"教师删除失败"),
+    TASK_UPDATE_FAILED(1035,"教师更新失败"),
+    TASK_ADD_FAILED(1036,"教师添加失败"),
+    TASK_FIND_FAILED(1037,"教师信息查找失败"),
+
+    EXAM_DELETE_FAILED(1038,"教师删除失败"),
+    EXAM_UPDATE_FAILED(1039,"教师更新失败"),
+    EXAM_ADD_FAILED(1040,"教师添加失败"),
+    EXAM_FIND_FAILED(1041,"教师信息查找失败"),
+
 
 
 

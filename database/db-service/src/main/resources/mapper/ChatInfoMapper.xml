@@ -8,9 +8,12 @@
             select * from edu_chatinfo where sender =#{sender} order by sendTime asc
         </select>
     <select id="findChatInfoByReceiver" resultType="com.zlt.pojo.EduChatinfo" parameterType="java.lang.String">
-            select * from edu_chatinfo where receiver =#{receiver}
+            select * from edu_chatinfo where receiver =#{receiver} order by sendTime asc
         </select>
+    <select id="findChatInfoBySenderAndReceiver" resultType="com.zlt.pojo.EduChatinfo" parameterType="java.lang.String">
+            select * from edu_chatinfo where (sender =#{sender} and receiver = #{receiver}) or (sender =#{receiver} and receiver = #{sender}) order by sendTime asc
+    </select>
     <insert id="addChatInfo" parameterType="com.zlt.pojo.EduChatinfo" >
-            INSERT INTO edu_chatinfo (id, sender, receiver, message, type, sendTime, reverse1, reverse2) VALUES (#{id}, #{sender}, #{receiver}, #{message}, #{type},#{sendTime}, #{reverse1}, #{reverse2})
+            INSERT INTO edu_chatinfo (id, sender, receiver, message, type, sendTime, senderName, senderImg, reverse1, reverse2) VALUES (#{id}, #{sender}, #{receiver}, #{message}, #{type},#{sendTime},#{senderName}, #{senderImg}, #{reverse1}, #{reverse2})
     </insert>
 </mapper>

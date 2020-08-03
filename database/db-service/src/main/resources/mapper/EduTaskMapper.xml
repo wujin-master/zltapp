@@ -111,4 +111,9 @@
         where taskId = #{taskId}
     </select>
 
+    <select id="findAll" resultType="com.zlt.pojo.EduTask">
+        select *
+        from edu_task
+    </select>
+
 </mapper>
