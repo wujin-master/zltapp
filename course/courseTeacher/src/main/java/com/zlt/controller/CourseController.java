@@ -32,8 +32,7 @@ public class CourseController {
         return Result.success(eduCourseList);
     }
 
-
-    //课程查找
+    //课程id查找
     @PostMapping("/findCourse")
     @ResponseBody
     public Result findCourse(String eduCourseId){
@@ -43,7 +42,7 @@ public class CourseController {
     //课程修改
     @PostMapping(value="/updateCourse")
     @ResponseBody
-    public Result upDateTeacher(@RequestBody EduCourse educourse){
+    public Result updateCourse(@RequestBody EduCourse educourse){
         EduCourse eduTeacher =  eduCourseService.findById(educourse.getCourseId());
         //课程不存在
         if(eduTeacher == null ){

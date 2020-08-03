@@ -37,4 +37,10 @@ public class ClassCourseServiceImpl implements ClassCourseService {
     public int deleteClassCourse(String id) {
         return classCourseMapper.deleteClassCourse(id);
     }
+
+
+    @Override
+    public List<EduClasscourse> findAllCourseByClassId(String cid){
+        return classCourseMapper.findAllCourseByClassId(cid);
+    }
 }
