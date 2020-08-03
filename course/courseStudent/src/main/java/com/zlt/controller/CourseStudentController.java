@@ -23,7 +23,7 @@ public class CourseStudentController {
     //添加学生-课程
     @PostMapping("/addUserCourse")
     @ResponseBody
-    public Result addCourse(@RequestBody EduUserCourse eduUserCourse){
+    public Result addUserCourse(@RequestBody EduUserCourse eduUserCourse){
         List<EduUserCourse> list1 = eduUserCourseService.findByUserId(eduUserCourse.getUserId());
         for(EduUserCourse eduUserCourse1:list1){
             if(eduUserCourse.getCourseId().equals(eduUserCourse1.getCourseId())){
@@ -36,7 +36,7 @@ public class CourseStudentController {
     }
 
     //更新学生-课程
-    @PostMapping(value="/updateTeacherCourse")//修改个人信息
+    @PostMapping(value="/upDateUserCourse")
     @ResponseBody
     public Result upDateUserCourse(@RequestBody EduUserCourse eduUserCourse){
         EduUserCourse eduUserCourse1 = eduUserCourseService.findUserCourse(eduUserCourse.getUserId(),eduUserCourse.getCourseId());
