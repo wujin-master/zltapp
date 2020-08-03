@@ -18,7 +18,6 @@ import java.util.List;
 @RestController
 @RequestMapping("edu_usrCou")
 public class CourseStudentController {
-
     private EduUserCourseService eduUserCourseService;
     //添加学生-课程
     @PostMapping("/addUserCourse")

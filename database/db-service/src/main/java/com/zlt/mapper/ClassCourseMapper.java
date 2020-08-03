@@ -11,5 +11,6 @@ public interface ClassCourseMapper {
     int addClassCourse(EduClasscourse eduClasscourse);
     int updateClassCourse(EduClasscourse eduClasscourse);
     EduClasscourse findClassCourseById(String id);
+    List<EduClasscourse> findAllCourseByClassId(String cid);
     int deleteClassCourse(String id);
 }

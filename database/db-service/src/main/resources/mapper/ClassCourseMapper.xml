@@ -10,7 +10,12 @@
         </select>
     <select id="findClassCourseById" resultType="com.zlt.pojo.EduClasscourse" parameterType="java.lang.String">
             select * from edu_classcourse where id =#{id}
-        </select>
+    </select>
+
+    <select id="findAllCourseByClassId" resultType="com.zlt.pojo.EduClasscourse" parameterType="java.lang.String">
+            select * from edu_classcourse where classId =#{cid}
+    </select>
+
     <insert id="addClassCourse" parameterType="com.zlt.pojo.EduClasscourse" >
             INSERT INTO edu_classcourse (id, classId, courseId, reverse1, reverse2) VALUES (#{id}, #{classId}, #{courseId}, #{reverse1}, #{reverse2})
         </insert>
