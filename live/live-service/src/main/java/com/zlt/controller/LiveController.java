@@ -29,10 +29,11 @@ public class LiveController {
     //获取播放地址
     @RequestMapping(value = "getLiveUrl", method={RequestMethod.POST})
     @ResponseBody
-    public String getCourseUrl(@RequestBody String courseId){
-        EduCourse eduCourse = eduCourseService.findById(courseId);
+    public String getCourseUrl(@RequestBody EduCourse eduCourse1){
+        EduCourse eduCourse = eduCourseService.findById(eduCourse1.getCourseId());
+        System.out.println(eduCourse.getLiveUrl());
         //此处无法调用get和set
-        return "";
+        return eduCourse.getLiveUrl();
     }
 
     //获取课程信息

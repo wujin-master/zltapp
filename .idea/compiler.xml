@@ -11,20 +11,20 @@
         <module name="db-service" />
         <module name="student" />
         <module name="gateway" />
+        <module name="ExamTeacher" />
         <module name="liveservice" />
         <module name="chat" />
-        <module name="common" />
         <module name="dbinterface" />
         <module name="ExamStudent" />
-        <module name="taskTeacher" />
+        <module name="courseStudent" />
         <module name="taskStudent" />
-        <module name="ExamTeacher" />
+        <module name="taskTeacher" />
         <module name="dbservice" />
         <module name="liveinterface" />
         <module name="presonTeacher" />
         <module name="presonStudent" />
         <module name="eureka" />
-        <module name="courseStudent" />
+        <module name="common" />
         <module name="db-interface" />
       </profile>
     </annotationProcessing>
