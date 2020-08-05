@@ -14,11 +14,16 @@ spring:
     password: 7DfnBL6pyEGDMi2i
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    host: localhost
+    port: 6379
 
 #mybatis整合
 mybatis:
   type-aliases-package: com.zlt.pojo
   mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
 
 eureka:
   client:

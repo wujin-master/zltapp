@@ -34,8 +34,7 @@ public class CourseController {
 
 
     //课程查找
-    @PostMapping("/findCourse")
-    @ResponseBody
+    @GetMapping("/findCourse")
     public Result findCourse(String eduCourseId){
         return Result.success(eduCourseService.findById(eduCourseId));
     }

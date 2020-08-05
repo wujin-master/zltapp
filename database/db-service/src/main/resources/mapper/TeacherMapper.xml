@@ -19,13 +19,13 @@
     </select>
 
     <insert id="addTeacher" parameterType="com.zlt.pojo.EduTeacher" >                                                                                                                               <!--    teacherId,   teacherPortrait,       teacherNickname, teacherMobile,     teacherEmail,       teacherPassword,teacherTno,  teacherSchool,    createTime,            updateTime,           reverse1  reverse2;   -->
-        INSERT INTO edu_teacher (teacherId,  teacherPortrait,  teacherNickname,teacherMobile,teacherEmail, teacherPassword, teacherTno, teacherSchool,createTime, updateTime,  reverse1, reverse2) VALUES (#{teacherId}, #{teacherPortrait}, #{teacherNickname}, #{teacherMobile}, #{teacherEmail}, #{teacherPassword}, #{teacherTno}, #{teacherSchool}, #{createTime}, #{updateTime}, #{reverse1}, #{reverse2})
+        INSERT INTO edu_teacher (teacherId,  teacherPortrait,  teacherNickname,teacherMobile,teacherEmail, teacherPassword, teacherTno, teacherSchool,reverse1, reverse2) VALUES (#{teacherId}, #{teacherPortrait}, #{teacherNickname}, #{teacherMobile}, #{teacherEmail}, #{teacherPassword}, #{teacherTno}, #{teacherSchool},#{reverse1}, #{reverse2})
     </insert>
     <delete id="deleteTeacher" parameterType="java.lang.String">
         delete from edu_teacher where teacherId=#{teacherId}
     </delete>
     <update id="updateTeacher" parameterType="com.zlt.pojo.EduTeacher">
-        UPDATE edu_teacher SET teacherId=#{teacherId}, teacherPortrait=#{teacherPortrait}, teacherNickname=#{teacherNickname}, teacherMobile=#{teacherMobile}, teacherEmail=#{teacherEmail}, teacherPassword=#{teacherPassword},teacherTno=#{teacherTno}, teacherSchool=#{teacherSchool}, createTime=#{createTime}, updateTime=#{updateTime} ,reverse1=#{reverse1}, reverse2=#{reverse2}  where teacherId=#{teacherId}
+        UPDATE edu_teacher SET teacherId=#{teacherId}, teacherPortrait=#{teacherPortrait}, teacherNickname=#{teacherNickname}, teacherMobile=#{teacherMobile}, teacherEmail=#{teacherEmail}, teacherPassword=#{teacherPassword},teacherTno=#{teacherTno}, teacherSchool=#{teacherSchool}, reverse1=#{reverse1}, reverse2=#{reverse2}  where teacherId=#{teacherId}
     </update>                <!--    teacherId,          teacherPortrait,                    teacherNickname,                       teacherMobile,              teacherEmail,                       teacherPassword,                 teacherTno,                teacherSchool,               createTime,             updateTime,                 reserve1,  reserve2-->
 </mapper>
 

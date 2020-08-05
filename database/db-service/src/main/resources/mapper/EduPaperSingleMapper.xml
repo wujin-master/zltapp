@@ -13,8 +13,8 @@
     </select>
 
     <insert id="addPaperSingle" parameterType="com.zlt.pojo.EduPaperSingle">
-        insert into edu_papersingle(id,paperId,singleId,createTime,updateTime,reserv1,reserv2)
-        values (#{id},#{paperId},#{singleId},#{createTime},#{updateTime},#{reserv1},#{reserv2})
+        insert into edu_papersingle(id,paperId,singleId,reserv1,reserv2)
+        values (#{id},#{paperId},#{singleId},#{reserv1},#{reserv2})
     </insert>
 
     <delete id="deletePaperSingleById" parameterType="java.lang.String">

@@ -249,10 +249,10 @@ public class ExamTeacherController {
     //组卷
     @PostMapping("/organizePaperSingle")
     @ResponseBody
-    public Result organizePaperSingle(@RequestBody List<String> idList,@RequestBody String paperId){
+    public Result organizePaperSingle(@RequestBody Map<String,Object> idList){
         EduPaperSingle eduPaperSingle = new EduPaperSingle();
-        eduPaperSingle.setPaperId(paperId);
-        for(String id:idList){
+        eduPaperSingle.setPaperId((String) idList.get("paperId"));
+        for(String id:(List<String>)idList.get("idList")){
             eduPaperSingle.setId(UUIDUtil.getUUID());
             eduPaperSingle.setSingleId(id);
             eduPaperSingleService.addPaperSingle(eduPaperSingle);

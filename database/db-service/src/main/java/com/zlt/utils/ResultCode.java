@@ -61,7 +61,7 @@ public enum ResultCode {
     EXAM_UPDATE_FAILED(1039,"教师更新失败"),
     EXAM_ADD_FAILED(1040,"教师添加失败"),
     EXAM_FIND_FAILED(1041,"教师信息查找失败"),
-
+    NO_TOKEN_OR_INVALIDATE(1050,"没有token或者token失效"),
 
 
 
