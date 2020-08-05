@@ -11,20 +11,22 @@
         <module name="db-service" />
         <module name="student" />
         <module name="gateway" />
-        <module name="ExamTeacher" />
         <module name="liveservice" />
         <module name="chat" />
+        <module name="common" />
         <module name="dbinterface" />
         <module name="ExamStudent" />
-        <module name="courseStudent" />
-        <module name="taskStudent" />
         <module name="taskTeacher" />
+        <module name="taskStudent" />
+        <module name="ExamTeacher" />
         <module name="dbservice" />
         <module name="liveinterface" />
         <module name="presonTeacher" />
         <module name="presonStudent" />
         <module name="eureka" />
-        <module name="common" />
+        <module name="live-interface" />
+        <module name="live-service" />
+        <module name="courseStudent" />
         <module name="db-interface" />
       </profile>
     </annotationProcessing>
@@ -55,6 +57,8 @@
       <module name="exam" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="live" options="-parameters" />
+      <module name="live-interface" options="-parameters" />
+      <module name="live-service" options="-parameters" />
       <module name="liveinterface" options="-parameters" />
       <module name="liveservice" options="-parameters" />
       <module name="presonStudent" options="-parameters" />

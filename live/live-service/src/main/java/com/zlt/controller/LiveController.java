@@ -8,6 +8,8 @@ import com.zlt.service.ChatInfoService;
 import com.zlt.service.EduClassService;
 import com.zlt.service.EduCourseService;
 import com.zlt.service.EduUserService;
+import com.zlt.utils.Result;
+import com.zlt.utils.ResultCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,21 +22,46 @@ public class LiveController {
     @Autowired(required = false)
     private EduUserService eduUserService;
     @Autowired(required = false)
-    private EduClassService eduClassService;
-    @Autowired(required = false)
     private ChatInfoService chatInfoService;
     @Autowired(required = false)
     private EduCourseService eduCourseService;
 
+    //修改直播地址
+    @RequestMapping(value = "ChangeLiveUrl", method={RequestMethod.POST})
+    @ResponseBody
+    public Result ChangeLiveUrl(@RequestBody EduCourse eduCourse1){
+        try{
+            //先取出来前端传来的courseId，去除对象之后修改直播地址，然后更新到数据库
+            EduCourse eduCourse = eduCourseService.findById(eduCourse1.getCourseId());
+            eduCourse.setLiveUrl(eduCourse1.getLiveUrl());
+            eduCourseService.updateCourse(eduCourse);
+            return Result.success();
+        } catch (Exception e) {
+            e.printStackTrace();
+            //出错就发送错误代码
+            return Result.failure(ResultCode.SQF_FAILED);
+        }
+
+    }
+
     //获取播放地址
     @RequestMapping(value = "getLiveUrl", method={RequestMethod.POST})
     @ResponseBody
-    public String getCourseUrl(@RequestBody EduCourse eduCourse1){
-        EduCourse eduCourse = eduCourseService.findById(eduCourse1.getCourseId());
-        System.out.println(eduCourse.getLiveUrl());
-        //此处无法调用get和set
-        return eduCourse.getLiveUrl();
+    public Result getCourseUrl(@RequestBody EduCourse eduCourse1){
+        try{
+            //先取出来前端传来的courseId，查找出对应的对象，然后新建一个course对象，设置直播地址，传给前端
+            EduCourse eduCourse = eduCourseService.findById(eduCourse1.getCourseId());
+            EduCourse eduCourse2 = new EduCourse();
+            eduCourse2.setLiveUrl(eduCourse.getLiveUrl());
+            return Result.success(eduCourse2);
+        } catch (Exception e) {
+            e.printStackTrace();
+            //出错就发送错误代码
+            return Result.failure(ResultCode.SQF_FAILED);
+        }
     }
+
+    //
 
     //获取课程信息
     @RequestMapping(value = "getCourseInfo", method={RequestMethod.POST})
@@ -68,19 +95,4 @@ public class LiveController {
         EduUser eduUser1 = eduUserService.findById(eduUser.getUserId());
         return eduUser1;
     }
-
-//    //获取属于该课程的用户
-//    @RequestMapping(value = "getClassUsers", method={RequestMethod.POST})
-//    @ResponseBody
-//    public List<EduUser> getClassUsers(@RequestBody String classId){
-//        List<EduUser> list = eduUserService.findAll();
-//        ArrayList<EduUser> userList = new ArrayList<EduUser>();
-//        for(EduUser eduUser:list){
-//            //此处负责写EduUser的同学，没有写classId属性，导致没有getClassId方法，添加即可
-//            if(classId.equals(eduUser.getClassId())){
-//                userList.add(eduUser);
-//            }
-//        }
-//        return userList;
-//    }
 }

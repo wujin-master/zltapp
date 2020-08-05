@@ -64,6 +64,8 @@ public enum ResultCode {
     NO_TOKEN_OR_INVALIDATE(1050,"没有token或者token失效"),
 
 
+    SQF_FAILED(500, "操作失败"),
+
 
     ID_HAS_EXIST(2001,"ID已存在");
 

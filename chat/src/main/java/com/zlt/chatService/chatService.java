@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
-    根据chatInfo的信息判断是群聊还是
+ 根据chatInfo的信息判断是群聊还是
  */
 @Component
 @ServerEndpoint(value = "/chat/{chatInfo}")   //当前服务的url：ws://ip/chat
