@@ -29,10 +29,11 @@ public class LiveController {
     //获取播放地址
     @RequestMapping(value = "getLiveUrl", method={RequestMethod.POST})
     @ResponseBody
-    public String getCourseUrl(@RequestBody String courseId){
-        EduCourse eduCourse = eduCourseService.findById(courseId);
+    public String getCourseUrl(@RequestBody EduCourse eduCourse1){
+        EduCourse eduCourse = eduCourseService.findById(eduCourse1.getCourseId());
+        System.out.println(eduCourse.getLiveUrl());
         //此处无法调用get和set
-        return "";
+        return eduCourse.getLiveUrl();
     }
 
     //获取课程信息
@@ -42,12 +43,21 @@ public class LiveController {
         return null;
     }
 
-    //获取课程信息
+    //获取群聊信息
     @RequestMapping(value = "getChatInfo", method={RequestMethod.POST})
     @ResponseBody
     public List<EduChatinfo> getChatInfo(@RequestBody EduChatinfo eduChatinfo){
+        List<EduChatinfo> list = chatInfoService.findChatInfoByReceiver(eduChatinfo.getReceiver());
+        return list;
+    }
+
+    //获取私聊信息
+    @RequestMapping(value = "getPrivateChatInfo", method={RequestMethod.POST})
+    @ResponseBody
+    public List<EduChatinfo> getPrivateChatInfo(@RequestBody EduChatinfo eduChatinfo){
         System.out.println(eduChatinfo.getReceiver());
-        List<EduChatinfo> list = chatInfoService.findChatInfoByReceiver("01");
+        System.out.println(eduChatinfo.getSender());
+        List<EduChatinfo> list = chatInfoService.findChatInfoBySenderAndReceiver(eduChatinfo.getSender(), eduChatinfo.getReceiver());
         return list;
     }
 

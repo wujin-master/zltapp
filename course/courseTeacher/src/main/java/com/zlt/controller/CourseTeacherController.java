@@ -32,8 +32,6 @@ public class CourseTeacherController {
         return Result.success();
     }
 
-
-
     //根据教师id查课表
     @RequestMapping(value="/findCoursesByTeId",method={RequestMethod.GET})
     @ResponseBody
@@ -55,6 +53,7 @@ public class CourseTeacherController {
             return Result.success(teacherCourseService.deleteTeacherCourse(tid,cid));
     }
 
+    //添加课程到班级
     @PostMapping("/addCouToCla")
     @ResponseBody
     public Result addCouToClas(@RequestBody Map<String,Object> map){

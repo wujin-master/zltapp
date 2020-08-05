@@ -15,11 +15,11 @@
         <module name="liveservice" />
         <module name="chat" />
         <module name="dbinterface" />
-        <module name="courseStudent" />
         <module name="ExamStudent" />
+        <module name="courseStudent" />
+        <module name="taskStudent" />
         <module name="taskTeacher" />
         <module name="dbservice" />
-        <module name="taskStudent" />
         <module name="liveinterface" />
         <module name="presonTeacher" />
         <module name="presonStudent" />

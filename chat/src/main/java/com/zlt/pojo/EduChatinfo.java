@@ -1,19 +1,35 @@
 package com.zlt.pojo;
 
 
-import java.sql.Timestamp;
-
 public class EduChatinfo {
 
   private String id;
   private String sender;
   private String receiver;
   private String message;
+  private String senderName;
+  private String senderImg;
   private String type;
-  private Timestamp sendTime;
+  private java.sql.Timestamp sendTime;
   private String reverse1;
   private String reverse2;
 
+
+  public String getSenderName() {
+    return senderName;
+  }
+
+  public void setSenderName(String senderName) {
+    this.senderName = senderName;
+  }
+
+  public String getSenderImg() {
+    return senderImg;
+  }
+
+  public void setSenderImg(String senderImg) {
+    this.senderImg = senderImg;
+  }
 
   public String getId() {
     return id;
@@ -60,11 +76,11 @@ public class EduChatinfo {
   }
 
 
-  public Timestamp getSendTime() {
+  public java.sql.Timestamp getSendTime() {
     return sendTime;
   }
 
-  public void setSendTime(Timestamp sendTime) {
+  public void setSendTime(java.sql.Timestamp sendTime) {
     this.sendTime = sendTime;
   }
 
@@ -86,17 +102,4 @@ public class EduChatinfo {
     this.reverse2 = reverse2;
   }
 
-  public EduChatinfo(String id, String sender, String receiver, String message, String type, Timestamp sendTime, String reverse1, String reverse2) {
-    this.id = id;
-    this.sender = sender;
-    this.receiver = receiver;
-    this.message = message;
-    this.type = type;
-    this.sendTime = sendTime;
-    this.reverse1 = reverse1;
-    this.reverse2 = reverse2;
-  }
-
-  public EduChatinfo() {
-  }
 }

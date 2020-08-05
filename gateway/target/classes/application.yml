@@ -25,18 +25,18 @@ zuul:
     live: /live/**
 #    communication: /chat/** # 微服务的映射路径
 #    person: /person/** # 微服务的映射路径
-#  hystrix:
-#    command:
-#      default:
-#        execution:
-#          isolation:
-#            thread:
-#              timeoutInMilliseconds: 60000
-#  ribbon:
-#    ReadTimeout: 50000
-#    ConnectTimeout: 50000
-#    MaxAutoRetries: 0
-#    MaxAutoRetriesNextServer: 1
+  hystrix:
+    command:
+      default:
+        execution:
+          isolation:
+            thread:
+              timeoutInMilliseconds: 60000
+  ribbon:
+    ReadTimeout: 50000
+    ConnectTimeout: 50000
+    MaxAutoRetries: 0
+    MaxAutoRetriesNextServer: 1
 eureka:
   client:
     registry-fetch-interval-seconds: 5 # 获取服务列表的周期：5s
