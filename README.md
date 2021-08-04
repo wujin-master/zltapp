@@ -1,2 +1,2 @@
 # zltapp
-这是eduapp
+这是eduapp测试类
